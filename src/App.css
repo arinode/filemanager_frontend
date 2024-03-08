@@ -1,0 +1,11 @@
+aside {
+    grid-area: aside;
+}
+
+header {
+    grid-area: header;
+}
+
+main {
+    grid-area: main;
+}
