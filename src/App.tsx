@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import Sidebar from './Sidebar'
 import Header from './Header'
+import Toolbar from './Toolbar'
 
 function App() {
     return (
@@ -9,7 +10,9 @@ function App() {
             <Sidebar />
             <div id="filemanager-wrapper">
                 <Header></Header>
-                <main></main>
+                <main>
+                    <Toolbar></Toolbar>
+                </main>
             </div>
         </>
     )
