@@ -1,9 +1,9 @@
 import "./Header.css"
 
-function Header() {
+function Header({ onSidebarButtonClick }) {
     return (
         <header>
-            <button>Show sidebar</button>
+            <button onClick={onSidebarButtonClick}>Show sidebar</button>
             <input type="search" placeholder="Search"></input>
         </header>
     )

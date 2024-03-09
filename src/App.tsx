@@ -3,13 +3,16 @@ import Sidebar from './Sidebar'
 import Header from './Header'
 import Toolbar from './Toolbar'
 import FileBrowser from './FileBrowser'
+import { useState } from 'react'
 
 function App() {
+    const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(true);
+
     return (
         <>
-            <Sidebar />
-            <div id="filemanager-wrapper">
-                <Header />
+            <Sidebar collapsed={isSidebarCollapsed} onSidebarFadeClick={() => setIsSidebarCollapsed(true)} />
+            <div id='filemanager-wrapper'>
+                <Header onSidebarButtonClick={() => setIsSidebarCollapsed(false)} />
                 <main>
                     <Toolbar />
                     <FileBrowser />

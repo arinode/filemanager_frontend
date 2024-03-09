@@ -1,5 +1,6 @@
 aside {
     width: 30ch;
+    background-color: #242424;
 
     display: flex;
     flex-direction: column;
@@ -8,11 +9,17 @@ aside {
     padding: 2ch;
 
     overflow: auto;
+
+    transition: all .5s cubic-bezier(.24, .92, .55, 1);
 }
 
 @media (max-width: 90ch) {
     aside {
         position: fixed;
+        height: 100lvh;
+    }
+
+    aside[data-collapsed=true] {
         transform: translateX(-100%);
     }
 }

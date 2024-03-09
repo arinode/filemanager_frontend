@@ -1,0 +1,12 @@
+.sidebar-fade {
+    width: 100lvw;
+    height: 100lvh;
+    position: fixed;
+    background-color: #000a;
+}
+
+@media (min-width: 90ch) {
+    .sidebar-fade {
+        display: none;
+    }
+}
