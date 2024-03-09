@@ -9,9 +9,9 @@ function App() {
         <>
             <Sidebar />
             <div id="filemanager-wrapper">
-                <Header></Header>
+                <Header />
                 <main>
-                    <Toolbar></Toolbar>
+                    <Toolbar />
                 </main>
             </div>
         </>
