@@ -13,10 +13,6 @@
     flex-direction: column;
 }
 
-header {
-    height: 5cap;
-}
-
 main {
     flex: 1;
 }

@@ -1,0 +1,18 @@
+header {
+    height: 5cap;
+
+    display: flex;
+    align-items: center;
+    gap: 1ch;
+
+    padding-left: 1ch;
+    padding-right: 1ch;
+}
+
+header>input {
+    flex: 1;
+
+    height: 3cap;
+    padding-left: 1ch;
+    max-width: 50ch;
+}
