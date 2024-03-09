@@ -5,8 +5,10 @@ function App() {
     return (
         <>
             <aside></aside>
-            <header></header>
-            <main></main>
+            <div id="filemanager-wrapper">
+                <header></header>
+                <main></main>
+            </div>
         </>
     )
 }

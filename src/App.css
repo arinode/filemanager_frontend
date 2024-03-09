@@ -1,21 +1,22 @@
-aside {
-    grid-area: aside;
-}
-
 #root {
     height: 100%;
-    display: grid;
-    grid-template-columns: 30ch 1fr;
-    grid-template-rows: 5cap 1fr;
-    grid-template-areas:
-        "aside header"
-        "aside main";
+    display: flex;
+}
+
+#filemanager-wrapper {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+aside {
+    width: 30ch;
 }
 
 header {
-    grid-area: header;
+    height: 5cap;
 }
 
 main {
-    grid-area: main;
+    flex: 1;
 }
