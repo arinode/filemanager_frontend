@@ -5,10 +5,16 @@ function Sidebar() {
         <aside>
             <button>New/Upload</button>
             <nav>
-                <button>Directory</button>
-                <button>Directory</button>
-                <button>Directory</button>
-                <button>Directory</button>
+                <button>Downloads</button>
+                <button>Music</button>
+                <button>Images</button>
+                <button>Videos</button>
+                <button>Documents</button>
+            </nav>
+            <nav>
+                <button>Storage 1</button>
+                <button>Storage 2</button>
+                <button>Storage 3</button>
             </nav>
         </aside>
     )
