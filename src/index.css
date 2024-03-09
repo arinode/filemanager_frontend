@@ -22,7 +22,7 @@
 }
 
 body {
-    height: 100dvh;
+    height: 100lvh;
 }
 
 @media (prefers-color-scheme: light) {
