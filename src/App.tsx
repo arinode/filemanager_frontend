@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import './App.css'
+import Sidebar from './Sidebar'
 
 function App() {
     return (
         <>
-            <aside></aside>
+            <Sidebar />
             <div id="filemanager-wrapper">
                 <header></header>
                 <main></main>

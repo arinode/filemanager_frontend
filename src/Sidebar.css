@@ -1,0 +1,26 @@
+aside {
+    width: 30ch;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2cap;
+
+    padding: 2ch;
+}
+
+aside>button {
+    font-size: larger;
+}
+
+aside>nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5cap;
+}
+
+aside>nav>button {
+    text-align: left;
+    padding-left: 2ch;
+    padding-top: 0.25cap;
+    padding-bottom: 0.25cap;
+}
