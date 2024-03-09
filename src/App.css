@@ -7,7 +7,7 @@
     display: flex;
 }
 
-#filemanager-wrapper {
+.filemanager-wrapper {
     display: flex;
     flex: 1;
     flex-direction: column;

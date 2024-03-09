@@ -11,7 +11,7 @@ function App() {
     return (
         <>
             <Sidebar collapsed={isSidebarCollapsed} onSidebarFadeClick={() => setIsSidebarCollapsed(true)} />
-            <div id='filemanager-wrapper'>
+            <div className='filemanager-wrapper'>
                 <Header onSidebarButtonClick={() => setIsSidebarCollapsed(false)} />
                 <main>
                     <Toolbar />

@@ -1,19 +1,19 @@
-#toolbar {
+.toolbar {
     display: flex;
     justify-content: space-between;
     padding-left: 2ch;
     padding-right: 2ch;
 }
 
-#toolbar>menu {
+.toolbar>menu {
     list-style: none;
     padding: 0;
 }
 
-#toolbar>nav {
+.toolbar>nav {
     align-self: center;
 }
 
-#toolbar>menu>li {
+.toolbar>menu>li {
     display: inline-block;
 }

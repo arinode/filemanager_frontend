@@ -2,7 +2,7 @@ import './Toolbar.css'
 
 function Toolbar() {
     return (
-        <div id="toolbar">
+        <div className="toolbar">
             <nav>home user Downloads</nav>
             <menu>
                 <li><button>New directory</button></li>

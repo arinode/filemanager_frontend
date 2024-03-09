@@ -1,4 +1,4 @@
-aside {
+.sidebar {
     width: 30ch;
     background-color: #242424;
 
@@ -14,27 +14,27 @@ aside {
 }
 
 @media (max-width: 90ch) {
-    aside {
+    .sidebar {
         position: fixed;
         height: 100lvh;
     }
 
-    aside[data-collapsed=true] {
+    .sidebar[data-collapsed=true] {
         transform: translateX(-100%);
     }
 }
 
-aside>button {
+.sidebar>button {
     font-size: larger;
 }
 
-aside>nav {
+.sidebar>nav {
     display: flex;
     flex-direction: column;
     gap: 0.5cap;
 }
 
-aside>nav>button {
+.sidebar>nav>button {
     text-align: left;
     padding-left: 2ch;
     padding-top: 0.25cap;

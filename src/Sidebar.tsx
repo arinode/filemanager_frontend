@@ -5,7 +5,7 @@ function Sidebar({ collapsed, onSidebarFadeClick }) {
     return (
         <>
             <SidebarFade active={collapsed} onClick={onSidebarFadeClick} />
-            <aside data-collapsed={collapsed}>
+            <aside className='sidebar' data-collapsed={collapsed}>
                 <button>New/Upload</button>
                 <nav>
                     <button>Downloads</button>
