@@ -1,3 +1,7 @@
+* {
+    outline: 1px solid #f0f;
+}
+
 #root {
     height: 100%;
     display: flex;
