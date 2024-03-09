@@ -1,0 +1,10 @@
+.file-browser {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.file-browser-entries {
+    flex: 1;
+    overflow: scroll;
+}
