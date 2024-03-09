@@ -12,7 +12,7 @@ aside {
 
 @media (max-width: 90ch) {
     aside {
-        position: absolute;
+        position: fixed;
         transform: translateX(-100%);
     }
 }
