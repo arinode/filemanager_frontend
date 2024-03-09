@@ -7,4 +7,5 @@
 .file-browser-entries {
     flex: 1;
     overflow: auto;
+    scrollbar-width: thin;
 }
