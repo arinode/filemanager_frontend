@@ -10,6 +10,10 @@
     padding: 0;
 }
 
+#toolbar>nav {
+    align-self: center;
+}
+
 #toolbar>menu>li {
     display: inline-block;
 }
