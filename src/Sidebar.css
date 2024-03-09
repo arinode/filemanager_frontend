@@ -8,6 +8,13 @@ aside {
     padding: 2ch;
 }
 
+@media (max-width: 90ch) {
+    aside {
+        position: absolute;
+        transform: translateX(-100%);
+    }
+}
+
 aside>button {
     font-size: larger;
 }

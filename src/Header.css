@@ -16,3 +16,17 @@ header>input {
     padding-left: 1ch;
     max-width: 50ch;
 }
+
+header>button {
+    display: none;
+}
+
+@media (max-width: 90ch) {
+    header>button {
+        display: block;
+    }
+
+    header {
+        justify-content: space-between;
+    }
+}
