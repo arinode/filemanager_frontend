@@ -6,6 +6,8 @@ aside {
     gap: 2cap;
 
     padding: 2ch;
+
+    overflow: auto;
 }
 
 @media (max-width: 90ch) {
