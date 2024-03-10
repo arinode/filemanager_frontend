@@ -45,6 +45,9 @@ body {
     /* 40 0.01 252 */
     /* text secondary (light) */
     --ar-sky-40-weak: #44484d;
+    /* 60 0.1 252 */
+    /* text tertiary (dark) */
+    --ar-sky-60-weak: #7c8186;
     /* 80 0.01 252 */
     /* text secondary (dark) */
     --ar-sky-80-weak: #b9bec4;
