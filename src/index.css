@@ -6,14 +6,16 @@
     font: inherit;
 }
 
+body {
+    height: 100lvh;
+}
+
 :root {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
 
     color-scheme: light dark;
-    color: rgba(255, 255, 255, 0.87);
-    background-color: #242424;
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -21,13 +23,19 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-    height: 100lvh;
+:root {
+    color: var(--ar-text-primary);
+    background-color: var(--ar-background);
+}
+
+:root {
+    --ar-background: #242424;
+    --ar-text-primary: #fffd;
 }
 
 @media (prefers-color-scheme: light) {
     :root {
-        color: #213547;
-        background-color: #ffffff;
+        --ar-background: #fff;
+        --ar-text-primary: #213547:
     }
 }
