@@ -1,0 +1,24 @@
+.text-input {
+    height: 3cap;
+    max-width: 50ch;
+
+    padding-left: 1.5ch;
+    text-overflow: ellipsis;
+
+    background: var(--ar-field);
+
+    width: 100%;
+
+    border: none;
+    border-radius: var(--ar-border-radius);
+    border-bottom: 1px solid var(--ar-border);
+}
+
+.text-input:focus {
+    outline: 2px solid var(--ar-focus);
+    outline-offset: -2px;
+}
+
+.text-input::placeholder {
+    color: var(--ar-text-tertiary);
+}
