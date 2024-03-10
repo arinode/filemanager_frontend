@@ -4,7 +4,7 @@ import SidebarFade from './SidebarFade'
 function Sidebar({ collapsed, onSidebarFadeClick }) {
     return (
         <>
-            <SidebarFade active={collapsed} onClick={onSidebarFadeClick} />
+            <SidebarFade isHidden={collapsed} onClick={onSidebarFadeClick} />
             <aside className='sidebar' data-collapsed={collapsed}>
                 <button>New/Upload</button>
                 <nav>
