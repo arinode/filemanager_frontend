@@ -39,6 +39,8 @@ body {
 
 /* --prefix-color-lightness-intensity */
 :root {
+    --ar-border-radius: 3px;
+
     /* 20 0.01 270 */
     /* text primary (light), background (dark) */
     --ar-blue-20-weak: #14161b;
