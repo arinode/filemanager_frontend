@@ -30,17 +30,20 @@ body {
 }
 
 /* HUE: interval 18 */
+/* 36  = orange */
 /* 252 = sky */
 /* 270 = blue */
 
-/* intensity */
+/* Intensity */
 /* weak = 0.01 */
 
 /* --prefix-color-lightness-intensity */
 :root {
-    /* 25 0.01 270 */
+    /* 20 0.01 270 */
     /* text primary (light), background (dark) */
+    --ar-blue-20-weak: #14161b;
     --ar-blue-25-weak: #202127;
+    --ar-blue-30-weak: #2c2e33;
 
     /* 40 0.01 252 */
     /* text secondary (light) */
@@ -57,15 +60,21 @@ body {
 }
 
 :root {
-    --ar-background: var(--ar-blue-25-weak);
+    --ar-background: var(--ar-blue-20-weak);
+    --ar-field: var(--ar-blue-25-weak);
+    --ar-border: var(--ar-blue-30-weak);
+
+    --ar-focus: var(--ar-sky-90-weak);
+
     --ar-text-primary: var(--ar-sky-90-weak);
     --ar-text-secondary: var(--ar-sky-80-weak);
+    --ar-text-tertiary: var(--ar-sky-60-weak);
 }
 
 @media (prefers-color-scheme: light) {
     :root {
         --ar-background: #fff;
-        --ar-text-primary: var(--ar-blue-25-weak);
+        --ar-text-primary: var(--ar-blue-20-weak);
         --ar-text-secondary: var(--ar-sky-40-weak);
     }
 }
