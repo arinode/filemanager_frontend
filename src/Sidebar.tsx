@@ -7,7 +7,7 @@ function Sidebar({ collapsed, onSidebarFadeClick }) {
         <>
             <SidebarFade isHidden={collapsed} onClick={onSidebarFadeClick} />
             <aside className='sidebar' data-collapsed={collapsed}>
-                <Button type="primary">New/Upload</Button>
+                <Button kind="primary">New/Upload</Button>
                 <nav>
                     <Button>Downloads</Button>
                     <Button>Music</Button>
