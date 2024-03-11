@@ -5,7 +5,8 @@
     display: flex;
 }
 
-.breadcrumbs>ol>li:not(:last-child)::after {
+.breadcrumbs>ol>li:not(:last-child)::after,
+.breadcrumbs>ol>li:is(:first-child)::before {
     content: "/";
     padding-inline: 0.5ch;
 }
