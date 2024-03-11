@@ -57,6 +57,7 @@ body {
     --ar-blue-35-weak: #383a40;
     --ar-blue-40-weak: #45484d;
 
+    --ar-blue-40-soft: #252fb1;
     --ar-blue-45-soft: #2f40c2;
     --ar-blue-50-soft: #3b51d3;
     --ar-blue-55-soft: #4761e4;
@@ -97,13 +98,17 @@ body {
     --ar-field: var(--ar-blue-25-weak);
     --ar-border: var(--ar-blue-30-weak);
 
+    --ar-button-primary: var(--ar-blue-55-soft);
+    --ar-button-primary-hover: var(--ar-blue-50-soft);
+    --ar-button-primary-active: var(--ar-blue-45-soft);
+
     --ar-button-secondary: var(--ar-blue-35-weak);
     --ar-button-secondary-hover: var(--ar-blue-30-weak);
     --ar-button-secondary-active: var(--ar-blue-25-weak);
 
-    --ar-button-primary: var(--ar-blue-55-soft);
-    --ar-button-primary-hover: var(--ar-blue-50-soft);
-    --ar-button-primary-active: var(--ar-blue-45-soft);
+    --ar-button-flat: #0000;
+    --ar-button-flat-hover: var(--ar-blue-25-weak);
+    --ar-button-flat-active: var(--ar-blue-35-weak);
 
     --ar-focus: var(--ar-sky-90-weak);
 
