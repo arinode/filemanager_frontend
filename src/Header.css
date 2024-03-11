@@ -9,12 +9,12 @@ header {
     padding-right: 1ch;
 }
 
-header>button {
+header>.button {
     display: none;
 }
 
 @media (max-width: 90ch) {
-    header>button {
+    header>.button {
         display: block;
     }
 

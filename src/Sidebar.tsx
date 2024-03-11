@@ -1,23 +1,24 @@
 import './Sidebar.css'
 import SidebarFade from './SidebarFade'
+import Button from './components/Button'
 
 function Sidebar({ collapsed, onSidebarFadeClick }) {
     return (
         <>
             <SidebarFade isHidden={collapsed} onClick={onSidebarFadeClick} />
             <aside className='sidebar' data-collapsed={collapsed}>
-                <button>New/Upload</button>
+                <Button type="primary">New/Upload</Button>
                 <nav>
-                    <button>Downloads</button>
-                    <button>Music</button>
-                    <button>Images</button>
-                    <button>Videos</button>
-                    <button>Documents</button>
+                    <Button>Downloads</Button>
+                    <Button>Music</Button>
+                    <Button>Images</Button>
+                    <Button>Videos</Button>
+                    <Button>Documents</Button>
                 </nav>
                 <nav>
-                    <button>Storage 1</button>
-                    <button>Storage 2</button>
-                    <button>Storage 3</button>
+                    <Button>Storage 1</Button>
+                    <Button>Storage 2</Button>
+                    <Button>Storage 3</Button>
                 </nav>
             </aside>
         </>

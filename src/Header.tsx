@@ -1,10 +1,11 @@
 import "./Header.css"
+import Button from "./components/Button"
 import TextInput from "./components/TextInput"
 
 function Header({ onSidebarButtonClick }) {
     return (
         <header>
-            <button onClick={onSidebarButtonClick}>Show sidebar</button>
+            <Button onClick={onSidebarButtonClick}>Show sidebar</Button>
             <TextInput placeholder="Search" onInput={(e) => console.log(e)} />
         </header>
     )
