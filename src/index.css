@@ -100,10 +100,10 @@ body {
 
     --ar-button-primary: var(--ar-blue-55-soft);
     --ar-button-primary-hover: var(--ar-blue-50-soft);
-    --ar-button-primary-active: var(--ar-blue-45-soft);
+    --ar-button-primary-active: var(--ar-blue-40-soft);
 
-    --ar-button-secondary: var(--ar-blue-35-weak);
-    --ar-button-secondary-hover: var(--ar-blue-30-weak);
+    --ar-button-secondary: var(--ar-blue-40-weak);
+    --ar-button-secondary-hover: var(--ar-blue-35-weak);
     --ar-button-secondary-active: var(--ar-blue-25-weak);
 
     --ar-button-flat: #0000;
