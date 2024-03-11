@@ -6,6 +6,6 @@
 }
 
 .breadcrumbs>ol>li:not(:last-child)::after {
-    content: ">";
+    content: "/";
     padding-inline: 0.5ch;
 }
