@@ -1,6 +1,7 @@
 import './Sidebar.css'
 import SidebarFade from './SidebarFade'
 import Button from './components/Button'
+import HorizontalRule from './components/HorizontalRule'
 
 function Sidebar({ collapsed, onSidebarFadeClick }) {
     return (
@@ -8,6 +9,7 @@ function Sidebar({ collapsed, onSidebarFadeClick }) {
             <SidebarFade isHidden={collapsed} onClick={onSidebarFadeClick} />
             <aside className='sidebar' data-collapsed={collapsed}>
                 <Button kind="flat">New/Upload</Button>
+                <HorizontalRule />
                 <nav>
                     <Button kind="flat">Downloads</Button>
                     <Button kind="flat">Music</Button>
@@ -15,6 +17,7 @@ function Sidebar({ collapsed, onSidebarFadeClick }) {
                     <Button kind="flat">Videos</Button>
                     <Button kind="flat">Documents</Button>
                 </nav>
+                <HorizontalRule />
                 <nav>
                     <Button kind="flat">Storage 1</Button>
                     <Button kind="flat">Storage 2</Button>
