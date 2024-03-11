@@ -1,0 +1,11 @@
+.breadcrumbs>ol {
+    list-style-type: none;
+    padding: 0;
+
+    display: flex;
+}
+
+.breadcrumbs>ol>li:not(:last-child)::after {
+    content: ">";
+    padding-inline: 0.5ch;
+}
