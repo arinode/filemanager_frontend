@@ -11,6 +11,8 @@
     overflow: auto;
 
     transition: all .5s cubic-bezier(.24, .92, .55, 1);
+
+    border-right: 1px solid var(--ar-border);
 }
 
 @media (max-width: 90ch) {
