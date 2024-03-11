@@ -1,6 +1,6 @@
 .sidebar {
     width: 28ch;
-    background-color: #242424;
+    background-color: var(--ar-background);
 
     display: flex;
     flex-direction: column;
