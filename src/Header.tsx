@@ -5,7 +5,7 @@ import TextInput from "./components/TextInput"
 function Header({ onSidebarButtonClick }) {
     return (
         <header>
-            <Button onClick={onSidebarButtonClick}>Show sidebar</Button>
+            <Button kind="flat" onClick={onSidebarButtonClick}>Show sidebar</Button>
             <TextInput placeholder="Search" onInput={(e) => console.log(e)} />
         </header>
     )

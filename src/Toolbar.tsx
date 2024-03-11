@@ -7,9 +7,9 @@ function Toolbar() {
         <div className="toolbar">
             <Breadcrumbs />
             <menu>
-                <li><Button>New directory</Button></li>
-                <li><Button>Change view</Button></li>
-                <li><Button>More utils</Button></li>
+                <li><Button kind="flat">New directory</Button></li>
+                <li><Button kind="flat">Change view</Button></li>
+                <li><Button kind="flat">More utils</Button></li>
             </menu>
         </div>
     )
