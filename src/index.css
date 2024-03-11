@@ -29,13 +29,15 @@ body {
     color: var(--ar-text-primary);
 }
 
-/* HUE: interval 18 */
+/* HUE: interval 18 (or 9) */
+/* 27  = red */
 /* 36  = orange */
 /* 252 = sky */
 /* 270 = blue */
 
 /* Intensity */
 /* weak = 0.01 */
+/* soft = 0.2 */
 
 /* --prefix-color-lightness-intensity */
 :root {
@@ -46,6 +48,15 @@ body {
     --ar-blue-20-weak: #14161b;
     --ar-blue-25-weak: #202127;
     --ar-blue-30-weak: #2c2e33;
+    --ar-blue-35-weak: #383a40;
+    --ar-blue-40-weak: #45484d;
+
+    --ar-blue-45-soft: #2f40c2;
+    --ar-blue-50-soft: #3b51d3;
+    --ar-blue-55-soft: #4761e4;
+    --ar-blue-60-soft: #5471f5;
+
+    --ar-red-60-soft: #de3c37;
 
     /* 40 0.01 252 */
     /* text secondary (light) */
@@ -61,10 +72,32 @@ body {
     --ar-sky-90-weak: #d9dfe5;
 }
 
+/* x = background-lightness */
+/* field = ~ +- 5 */
+/* border = ~ +- 5 */
+
+/* button-secondary = x +- 15 */
+/* ~-hover = ~ +- 5 */
+/* ~-active = ~ +- 5 */
+
+/* focus = x +- 70 */
+
+/* text-primary = x +- 70 */
+/* ~-secondary = ~ +- 10 */
+/* ~-tertiary = ~ +- 20 */
+
 :root {
     --ar-background: var(--ar-blue-20-weak);
     --ar-field: var(--ar-blue-25-weak);
     --ar-border: var(--ar-blue-30-weak);
+
+    --ar-button-secondary: var(--ar-blue-35-weak);
+    --ar-button-secondary-hover: var(--ar-blue-30-weak);
+    --ar-button-secondary-active: var(--ar-blue-25-weak);
+
+    --ar-button-primary: var(--ar-blue-55-soft);
+    --ar-button-primary-hover: var(--ar-blue-50-soft);
+    --ar-button-primary-active: var(--ar-blue-45-soft);
 
     --ar-focus: var(--ar-sky-90-weak);
 
