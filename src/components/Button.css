@@ -45,5 +45,13 @@
 }
 
 .button.flat {
-    background: #0000;
+    background: var(--ar-button-flat);
+}
+
+.button.flat:hover {
+    background: var(--ar-button-flat-hover);
+}
+
+.button.flat:active {
+    background: var(--ar-button-flat-active);
 }
