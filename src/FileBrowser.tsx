@@ -1,15 +1,12 @@
 import './FileBrowser.css'
-import FileBrowserEntry from './FileBrowserEntry'
+// import FileBrowserEntry from './FileBrowserEntry'
+import DirEntryTable from './components/DirEntryTable';
 import { getTestEntries } from './direntry';
 
 function FileBrowser() {
-    const entries = getTestEntries(256).map((e) => <FileBrowserEntry {...e} />);
-
     return (
         <div className="file-browser">
-            <div className="file-browser-entries">
-                {entries}
-            </div>
+            <DirEntryTable entries={getTestEntries(64)} />
         </div>
     )
 }
