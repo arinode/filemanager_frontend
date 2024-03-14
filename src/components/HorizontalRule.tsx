@@ -1,7 +1,5 @@
-import './HorizontalRule.css'
+import './HorizontalRule.css';
 
 export default function HorizontalRule() {
-    return (
-        <hr className="horizontal-rule" />
-    )
+  return <hr className='horizontal-rule' />;
 }

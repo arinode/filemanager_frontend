@@ -1,23 +1,23 @@
 .toolbar {
-    display: flex;
-    justify-content: space-between;
-    padding-left: 2ch;
-    padding-right: 2ch;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 2ch;
+  padding-right: 2ch;
 }
 
 .toolbar>menu {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .toolbar>menu>li:not(:last-child) {
-    margin-inline-end: 1ch;
+  margin-inline-end: 1ch;
 }
 
 .toolbar>nav {
-    align-self: center;
+  align-self: center;
 }
 
 .toolbar>menu>li {
-    display: inline-block;
+  display: inline-block;
 }

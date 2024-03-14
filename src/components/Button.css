@@ -1,57 +1,57 @@
 .button {
-    height: 3cap;
-    min-width: fit-content;
+  height: 3cap;
+  min-width: fit-content;
 
-    border: none;
-    border-radius: 3px;
+  border: none;
+  border-radius: 3px;
 
-    padding-left: 1ch;
-    padding-right: 1ch;
+  padding-left: 1ch;
+  padding-right: 1ch;
 
-    background: #f00;
-    color: var(--ar-text-primary);
+  background: #f00;
+  color: var(--ar-text-primary);
 }
 
 .button:focus {
-    outline: 2px solid var(--ar-focus);
-    outline-offset: -2px;
+  outline: 2px solid var(--ar-focus);
+  outline-offset: -2px;
 }
 
 
 .button.primary {
-    background: var(--ar-button-primary);
-    color: #fff;
+  background: var(--ar-button-primary);
+  color: #fff;
 }
 
 .button.primary:hover {
-    background: var(--ar-button-primary-hover);
+  background: var(--ar-button-primary-hover);
 }
 
 .button.primary:active {
-    background: var(--ar-button-primary-active);
+  background: var(--ar-button-primary-active);
 }
 
 
 .button.secondary {
-    background: var(--ar-button-secondary);
+  background: var(--ar-button-secondary);
 }
 
 .button.secondary:hover {
-    background: var(--ar-button-secondary-hover);
+  background: var(--ar-button-secondary-hover);
 }
 
 .button.secondary:active {
-    background: var(--ar-button-secondary-active);
+  background: var(--ar-button-secondary-active);
 }
 
 .button.flat {
-    background: var(--ar-button-flat);
+  background: var(--ar-button-flat);
 }
 
 .button.flat:hover {
-    background: var(--ar-button-flat-hover);
+  background: var(--ar-button-flat-hover);
 }
 
 .button.flat:active {
-    background: var(--ar-button-flat-active);
+  background: var(--ar-button-flat-active);
 }

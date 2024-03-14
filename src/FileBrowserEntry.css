@@ -1,6 +1,6 @@
 .file-browser-entry {
-    display: flex;
-    justify-content: space-between;
-    padding-left: 2ch;
-    padding-right: 2ch;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 2ch;
+  padding-right: 2ch;
 }

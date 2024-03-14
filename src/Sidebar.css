@@ -1,44 +1,44 @@
 .sidebar {
-    width: 28ch;
-    background-color: var(--ar-background);
+  width: 28ch;
+  background-color: var(--ar-background);
 
-    display: flex;
-    flex-direction: column;
-    gap: 2cap;
+  display: flex;
+  flex-direction: column;
+  gap: 2cap;
 
-    padding: 2ch;
+  padding: 2ch;
 
-    overflow: auto;
+  overflow: auto;
 
-    transition: all .5s cubic-bezier(.24, .92, .55, 1);
+  transition: all .5s cubic-bezier(.24, .92, .55, 1);
 
-    border-right: 1px solid var(--ar-border);
+  border-right: 1px solid var(--ar-border);
 }
 
 @media (max-width: 90ch) {
-    .sidebar {
-        position: fixed;
-        height: 100lvh;
-    }
+  .sidebar {
+    position: fixed;
+    height: 100lvh;
+  }
 
-    .sidebar[data-collapsed=true] {
-        transform: translateX(-100%);
-    }
+  .sidebar[data-collapsed=true] {
+    transform: translateX(-100%);
+  }
 }
 
 .sidebar>button {
-    font-size: larger;
+  font-size: larger;
 }
 
 .sidebar>nav {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5cap;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5cap;
 }
 
 .sidebar>nav>button {
-    text-align: left;
-    padding-left: 2ch;
-    padding-top: 0.25cap;
-    padding-bottom: 0.25cap;
+  text-align: left;
+  padding-left: 2ch;
+  padding-top: 0.25cap;
+  padding-bottom: 0.25cap;
 }

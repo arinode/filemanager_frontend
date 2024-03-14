@@ -1,12 +1,12 @@
 .breadcrumbs>ol {
-    list-style-type: none;
-    padding: 0;
+  list-style-type: none;
+  padding: 0;
 
-    display: flex;
+  display: flex;
 }
 
 .breadcrumbs>ol>li:not(:last-child)::after,
 .breadcrumbs>ol>li:is(:first-child)::before {
-    content: "/";
-    padding-inline: 0.5ch;
+  content: "/";
+  padding-inline: 0.5ch;
 }

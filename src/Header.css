@@ -1,24 +1,24 @@
 header {
-    height: 5cap;
+  height: 5cap;
 
-    display: flex;
-    align-items: center;
-    gap: 1ch;
+  display: flex;
+  align-items: center;
+  gap: 1ch;
 
-    padding-left: 1ch;
-    padding-right: 1ch;
+  padding-left: 1ch;
+  padding-right: 1ch;
 }
 
 header>.button {
-    display: none;
+  display: none;
 }
 
 @media (max-width: 90ch) {
-    header>.button {
-        display: block;
-    }
+  header>.button {
+    display: block;
+  }
 
-    header {
-        justify-content: space-between;
-    }
+  header {
+    justify-content: space-between;
+  }
 }
