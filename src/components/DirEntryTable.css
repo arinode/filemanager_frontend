@@ -1,0 +1,34 @@
+.dir-entry-table {
+  width: 100%;
+  border-spacing: 0;
+}
+
+.dir-entry-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
+  background: var(--ar-background);
+}
+
+.dir-entry-table tbody {
+  position: sticky;
+  top: 0;
+}
+
+.dir-entry-table tbody>tr {
+  height: 3cap;
+}
+
+.dir-entry-table th>button {
+  width: 100%;
+  text-align: start;
+}
+
+.dir-entry-table th {
+  border-bottom: 1px solid var(--ar-border);
+}
+
+.dir-entry-table th[data-col-type="size"] {
+  width: 10ch;
+}
