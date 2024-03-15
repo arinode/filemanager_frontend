@@ -55,3 +55,8 @@
 .button.flat:active {
   background: var(--ar-button-flat-active);
 }
+
+.button.transparent {
+  background: #0000;
+  color: #0000;
+}

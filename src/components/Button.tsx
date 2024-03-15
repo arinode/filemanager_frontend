@@ -4,7 +4,13 @@ import './Button.css';
 export interface ButtonProps {
   children: ReactNode;
   className: string;
-  kind?: 'primary' | 'secondary' | 'tertiary' | 'danger' | 'flat';
+  kind?:
+    | 'primary'
+    | 'secondary'
+    | 'tertiary'
+    | 'danger'
+    | 'flat'
+    | 'transparent';
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   style?: CSSProperties;
 }
