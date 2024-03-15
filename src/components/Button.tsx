@@ -1,4 +1,4 @@
-import { CSSProperties, ReactNode } from 'react';
+import { CSSProperties, ForwardedRef, forwardRef, ReactNode } from 'react';
 import './Button.css';
 
 export interface ButtonProps {
@@ -15,15 +15,16 @@ export interface ButtonProps {
   style?: CSSProperties;
 }
 
-const Button = ({
+const Button = forwardRef(({
   children,
   className,
   kind = 'secondary',
   onClick = (e) => console.error('onClick handler is not bound', e),
   style,
-}: ButtonProps) => {
+}: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
   return (
     <button
+      ref={ref}
       className={`button ${kind} ${className}`}
       style={style}
       onClick={onClick}
@@ -31,6 +32,6 @@ const Button = ({
       {children}
     </button>
   );
-};
+});
 
 export default Button;
