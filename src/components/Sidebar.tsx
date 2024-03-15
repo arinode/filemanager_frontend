@@ -1,6 +1,6 @@
 import Button from './Button';
 import './Sidebar.css';
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useRef } from 'react';
 
 export interface SidebarProps {
   children: ReactNode;
@@ -13,6 +13,14 @@ const Sidebar = (
   { children, isToggled = false, onBackdropClick, isBroken = false }:
     SidebarProps,
 ) => {
+  const backdropRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (isBroken && isToggled) {
+      backdropRef.current!.focus();
+    }
+  }, [isToggled, isBroken]);
+
   return (
     <div
       className='sidebar-wrapper'
@@ -20,6 +28,7 @@ const Sidebar = (
       data-toggled={isToggled}
     >
       <Button
+        ref={backdropRef}
         kind='transparent'
         className='sidebar-backdrop'
         onClick={onBackdropClick}
