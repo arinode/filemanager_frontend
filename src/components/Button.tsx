@@ -3,7 +3,7 @@ import './Button.css';
 
 export interface ButtonProps {
   children: ReactNode;
-  className: string;
+  className?: string;
   kind?:
     | 'primary'
     | 'secondary'
