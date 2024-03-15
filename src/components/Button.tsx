@@ -3,6 +3,7 @@ import './Button.css';
 
 export interface ButtonProps {
   children: ReactNode;
+  className: string;
   kind?: 'primary' | 'secondary' | 'tertiary' | 'danger' | 'flat';
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   style?: CSSProperties;
@@ -10,12 +11,17 @@ export interface ButtonProps {
 
 const Button = ({
   children,
+  className,
   kind = 'secondary',
   onClick = (e) => console.error('onClick handler is not bound', e),
   style,
 }: ButtonProps) => {
   return (
-    <button className={`button ${kind}`} style={style} onClick={onClick}>
+    <button
+      className={`button ${kind} ${className}`}
+      style={style}
+      onClick={onClick}
+    >
       {children}
     </button>
   );
