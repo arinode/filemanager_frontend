@@ -1,5 +1,7 @@
 import './HorizontalRule.css';
 
-export default function HorizontalRule() {
+const HorizontalRule = () => {
   return <hr className='horizontal-rule' />;
-}
+};
+
+export default HorizontalRule;

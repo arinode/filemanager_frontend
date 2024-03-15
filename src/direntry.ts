@@ -1,4 +1,4 @@
-class DirEntry {
+export default class DirEntry {
   id: number;
   name: string;
   size: number;
@@ -10,7 +10,7 @@ class DirEntry {
   }
 }
 
-function getTestEntries(count: number): DirEntry[] {
+const getTestEntries = (count: number): DirEntry[] => {
   const entries: DirEntry[] = [];
 
   for (let i = 0; i < count; i++) {
@@ -19,7 +19,6 @@ function getTestEntries(count: number): DirEntry[] {
   }
 
   return entries;
-}
+};
 
-export { DirEntry, getTestEntries };
-export default DirEntry;
+export { getTestEntries };

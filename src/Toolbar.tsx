@@ -2,7 +2,7 @@ import './Toolbar.css';
 import Breadcrumbs from './components/Breadcrumbs';
 import Button from './components/Button';
 
-function Toolbar() {
+const Toolbar = () => {
   return (
     <div className='toolbar'>
       <Breadcrumbs />
@@ -19,6 +19,6 @@ function Toolbar() {
       </menu>
     </div>
   );
-}
+};
 
 export default Toolbar;

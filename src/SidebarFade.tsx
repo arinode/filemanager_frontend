@@ -1,6 +1,6 @@
 import './SidebarFade.css';
 
-function SidebarFade({ isHidden, onClick }) {
+const SidebarFade = ({ isHidden, onClick }) => {
   return (
     <div
       onClick={onClick}
@@ -9,6 +9,6 @@ function SidebarFade({ isHidden, onClick }) {
     >
     </div>
   );
-}
+};
 
 export default SidebarFade;

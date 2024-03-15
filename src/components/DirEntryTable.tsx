@@ -7,16 +7,16 @@ export interface DirEntryTableProps {
   entries: DirEntry[];
 }
 
-function DirEntryTableRow({ name, size }: DirEntry) {
+const DirEntryTableRow = ({ name, size }: DirEntry) => {
   return (
     <tr>
       <td>{name}</td>
       <td>{formatBytes(size)}</td>
     </tr>
   );
-}
+};
 
-export default function DirEntryTable({ entries }: DirEntryTableProps) {
+const DirEntryTable = ({ entries }: DirEntryTableProps) => {
   return (
     <table className='dir-entry-table'>
       <thead>
@@ -34,4 +34,6 @@ export default function DirEntryTable({ entries }: DirEntryTableProps) {
       </tbody>
     </table>
   );
-}
+};
+
+export default DirEntryTable;

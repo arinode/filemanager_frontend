@@ -7,10 +7,10 @@ export interface TextInputProps {
   onInput: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export default function TextInput(
+const TextInput = (
   { placeholder = ' · · · ', disabled = false, type = 'text', onInput }:
     TextInputProps,
-) {
+) => {
   return (
     <input
       className='text-input'
@@ -20,4 +20,6 @@ export default function TextInput(
       disabled={disabled}
     />
   );
-}
+};
+
+export default TextInput;

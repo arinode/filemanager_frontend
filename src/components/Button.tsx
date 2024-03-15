@@ -7,12 +7,14 @@ export interface ButtonProps {
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export default function Button({
+const Button = ({
   children,
   kind = 'secondary',
   onClick = (e) => console.error('onClick handler is not bound', e),
-}: ButtonProps) {
+}: ButtonProps) => {
   return (
     <button className={`button ${kind}`} onClick={onClick}>{children}</button>
   );
-}
+};
+
+export default Button;

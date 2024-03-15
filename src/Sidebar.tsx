@@ -3,7 +3,7 @@ import SidebarFade from './SidebarFade';
 import Button from './components/Button';
 import HorizontalRule from './components/HorizontalRule';
 
-function Sidebar({ collapsed, onSidebarFadeClick }) {
+const Sidebar = ({ collapsed, onSidebarFadeClick }) => {
   return (
     <>
       <SidebarFade isHidden={collapsed} onClick={onSidebarFadeClick} />
@@ -26,6 +26,6 @@ function Sidebar({ collapsed, onSidebarFadeClick }) {
       </aside>
     </>
   );
-}
+};
 
 export default Sidebar;

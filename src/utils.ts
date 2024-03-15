@@ -1,5 +1,5 @@
 /// Uses Base 10 International Electrotechnical Commission (IEC) definition.
-function formatBytes(bytes: number): string {
+const formatBytes = (bytes: number): string => {
   function formatBytesInner(
     bytes: number,
     unitPow: number,
@@ -58,6 +58,6 @@ function formatBytes(bytes: number): string {
   }
 
   return formatBytesInner(bytes, 10, 'QB');
-}
+};
 
 export { formatBytes };

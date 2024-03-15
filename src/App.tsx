@@ -5,7 +5,7 @@ import Toolbar from './Toolbar';
 import FileBrowser from './FileBrowser';
 import { useState } from 'react';
 
-function App() {
+const App = () => {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(true);
 
   return (
@@ -23,6 +23,6 @@ function App() {
       </div>
     </>
   );
-}
+};
 
 export default App;
