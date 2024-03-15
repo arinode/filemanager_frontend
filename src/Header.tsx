@@ -2,10 +2,14 @@ import './Header.css';
 import Button from './components/Button';
 import TextInput from './components/TextInput';
 
-const Header = ({ onSidebarButtonClick }) => {
+const Header = ({ onSidebarButtonClick, isSidebarButtonVisible }) => {
+  const style = isSidebarButtonVisible ? {} : { display: 'none' };
+
   return (
     <header>
-      <Button kind='flat' onClick={onSidebarButtonClick}>Show sidebar</Button>
+      <Button kind='flat' style={style} onClick={onSidebarButtonClick}>
+        Show sidebar
+      </Button>
       <TextInput placeholder='Search' onInput={(e) => console.log(e)} />
     </header>
   );

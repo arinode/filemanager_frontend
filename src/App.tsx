@@ -1,21 +1,46 @@
 import './App.css';
-import Sidebar from './Sidebar';
+import Sidebar from './components/Sidebar';
 import Header from './Header';
 import Toolbar from './Toolbar';
 import FileBrowser from './FileBrowser';
 import { useState } from 'react';
+import Button from './components/Button';
+import HorizontalRule from './components/HorizontalRule';
+import { useWatchMediaQuery } from './utils';
 
 const App = () => {
-  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(true);
+  const [isSidebarToggled, setIsSidebarToggled] = useState(false);
+
+  const isNarrowScreen = useWatchMediaQuery('(max-width: 90ch)');
 
   return (
     <>
       <Sidebar
-        collapsed={isSidebarCollapsed}
-        onSidebarFadeClick={() => setIsSidebarCollapsed(true)}
-      />
+        isBroken={isNarrowScreen}
+        isToggled={isSidebarToggled}
+        onBackdropClick={() => setIsSidebarToggled(false)}
+      >
+        <Button kind='flat'>New/Upload</Button>
+        <HorizontalRule />
+        <nav>
+          <Button kind='flat'>Downloads</Button>
+          <Button kind='flat'>Music</Button>
+          <Button kind='flat'>Images</Button>
+          <Button kind='flat'>Videos</Button>
+          <Button kind='flat'>Documents</Button>
+        </nav>
+        <HorizontalRule />
+        <nav>
+          <Button kind='flat'>Storage 1</Button>
+          <Button kind='flat'>Storage 2</Button>
+          <Button kind='flat'>Storage 3</Button>
+        </nav>
+      </Sidebar>
       <div className='filemanager-wrapper'>
-        <Header onSidebarButtonClick={() => setIsSidebarCollapsed(false)} />
+        <Header
+          isSidebarButtonVisible={isNarrowScreen}
+          onSidebarButtonClick={() => setIsSidebarToggled(true)}
+        />
         <main>
           <Toolbar />
           <FileBrowser />
