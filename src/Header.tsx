@@ -10,7 +10,7 @@ const Header = ({ onSidebarButtonClick, isSidebarButtonVisible }) => {
       <Button kind='flat' style={style} onClick={onSidebarButtonClick}>
         Show sidebar
       </Button>
-      <TextInput placeholder='Search' onInput={(e) => console.log(e)} />
+      <TextInput placeholder='Search' onChange={(e) => console.log(e)} />
     </header>
   );
 };
