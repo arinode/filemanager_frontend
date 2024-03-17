@@ -3,7 +3,14 @@ import './Header.css';
 import Button from './components/Button';
 import TextInput from './components/TextInput';
 
-const Header = ({ onSidebarButtonClick, isSidebarButtonVisible }) => {
+export interface HeaderProps {
+  onSidebarButtonClick: () => void;
+  isSidebarButtonVisible: boolean;
+}
+
+const Header = (
+  { onSidebarButtonClick, isSidebarButtonVisible }: HeaderProps,
+) => {
   const style = isSidebarButtonVisible ? {} : { display: 'none' };
   const [query, setQuery] = useState('');
 
