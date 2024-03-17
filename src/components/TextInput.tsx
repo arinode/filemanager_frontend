@@ -5,10 +5,11 @@ export interface TextInputProps {
   disabled?: boolean;
   type?: 'text' | 'search';
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  value?: string;
 }
 
 const TextInput = (
-  { placeholder = ' · · · ', disabled = false, type = 'text', onChange }:
+  { placeholder = ' · · · ', disabled = false, type = 'text', onChange, value }:
     TextInputProps,
 ) => {
   return (
@@ -18,6 +19,7 @@ const TextInput = (
       onChange={onChange}
       placeholder={placeholder}
       disabled={disabled}
+      value={value}
     />
   );
 };
