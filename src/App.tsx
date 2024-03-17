@@ -13,6 +13,10 @@ const App = () => {
 
   const isNarrowScreen = useWatchMediaQuery('(max-width: 90ch)');
 
+  if (isNarrowScreen === false && isSidebarToggled) {
+    setIsSidebarToggled(false);
+  }
+
   return (
     <>
       <Sidebar
