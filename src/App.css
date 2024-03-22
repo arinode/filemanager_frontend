@@ -4,13 +4,6 @@
 
 #root {
   height: 100%;
-  display: flex;
-}
-
-.filemanager-wrapper {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
 }
 
 main {

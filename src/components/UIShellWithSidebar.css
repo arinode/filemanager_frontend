@@ -1,0 +1,11 @@
+.ui-shell-with-sidebar {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.ui-shell-with-sidebar-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}

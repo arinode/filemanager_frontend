@@ -2,26 +2,28 @@ import { useState } from 'react';
 import './Header.css';
 import Button from './components/Button';
 import TextInput from './components/TextInput';
+import { useUIShellWithSidebarContext } from './components/UIShellWithSidebarContext';
 
-export interface HeaderProps {
-  onSidebarButtonClick: () => void;
-  isSidebarButtonVisible: boolean;
-}
+const Header = () => {
+  const { isNarrowScreen, setIsSidebarToggled } =
+    useUIShellWithSidebarContext();
 
-const Header = (
-  { onSidebarButtonClick, isSidebarButtonVisible }: HeaderProps,
-) => {
-  const style = isSidebarButtonVisible ? {} : { display: 'none' };
+  const style = isNarrowScreen ? {} : { display: 'none' };
   const [query, setQuery] = useState('');
 
   const onSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e);
     setQuery(e.target.value);
   };
 
   return (
     <header>
-      <Button kind='flat' style={style} onClick={onSidebarButtonClick}>
+      <Button
+        kind='flat'
+        style={style}
+        onClick={() => {
+          setIsSidebarToggled(true);
+        }}
+      >
         Show sidebar
       </Button>
       <TextInput placeholder='Search' onChange={onSearchChange} value={query} />
