@@ -1,10 +1,8 @@
 import './App.css';
+import FileBrowser from './FileBrowser';
 import Header from './Header';
 import Toolbar from './Toolbar';
-import FileBrowser from './FileBrowser';
-import Button from './components/Button';
-import HorizontalRule from './components/HorizontalRule';
-import UIShellWithSidebar from './components/UIShellWithSidebar';
+import { Button, HorizontalRule, UIShellWithSidebar } from './components';
 
 const App = () => {
   const sidebarChildren = (

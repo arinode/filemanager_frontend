@@ -8,7 +8,7 @@ export interface TextInputProps {
   value?: string;
 }
 
-const TextInput = (
+export const TextInput = (
   { placeholder = ' · · · ', disabled = false, type = 'text', onChange, value }:
     TextInputProps,
 ) => {
@@ -23,5 +23,3 @@ const TextInput = (
     />
   );
 };
-
-export default TextInput;

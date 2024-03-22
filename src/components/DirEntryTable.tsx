@@ -1,13 +1,13 @@
 import DirEntry from '../direntry';
 import { formatBytes } from '../utils';
-import Button from './Button';
+import { Button } from './index';
 import './DirEntryTable.css';
 
 export interface DirEntryTableProps {
   entries: DirEntry[];
 }
 
-const DirEntryTable = ({ entries }: DirEntryTableProps) => {
+export const DirEntryTable = ({ entries }: DirEntryTableProps) => {
   return (
     <table className='dir-entry-table'>
       <thead>
@@ -35,5 +35,3 @@ const DirEntryTableRow = ({ name, size }: DirEntry) => {
     </tr>
   );
 };
-
-export default DirEntryTable;

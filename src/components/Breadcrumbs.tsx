@@ -3,7 +3,7 @@ import './Breadcrumbs.css';
 export interface BreadcrumbsProps {
 }
 
-const Breadcrumbs = () => {
+export const Breadcrumbs = () => {
   return (
     <nav className='breadcrumbs' aria-label='breadcrumbs'>
       <ol>
@@ -20,5 +20,3 @@ const Breadcrumbs = () => {
     </nav>
   );
 };
-
-export default Breadcrumbs;

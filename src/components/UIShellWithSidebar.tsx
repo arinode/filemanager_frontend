@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import Sidebar from './Sidebar';
 import {
+  Sidebar,
   UIShellWithSidebarContext,
   UIShellWithSidebarContextProps,
-} from './UIShellWithSidebarContext';
+} from './index';
 import { useWatchMediaQuery } from '../utils';
 import './UIShellWithSidebar.css';
 
@@ -12,7 +12,7 @@ export interface UIShellWithSidebarProps {
   mainChildren: React.ReactElement;
 }
 
-const UIShellWithSidebar = (
+export const UIShellWithSidebar = (
   { sidebarChildren, mainChildren }: UIShellWithSidebarProps,
 ) => {
   const [isSidebarToggled, setIsSidebarToggled] = useState(false);
@@ -44,5 +44,3 @@ const UIShellWithSidebar = (
     </div>
   );
 };
-
-export default UIShellWithSidebar;

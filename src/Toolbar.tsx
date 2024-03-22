@@ -1,6 +1,5 @@
 import './Toolbar.css';
-import Breadcrumbs from './components/Breadcrumbs';
-import Button from './components/Button';
+import { Breadcrumbs, Button } from './components';
 
 const Toolbar = () => {
   return (

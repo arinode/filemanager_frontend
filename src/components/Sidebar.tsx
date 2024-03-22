@@ -1,4 +1,4 @@
-import Button from './Button';
+import { Button } from './index';
 import './Sidebar.css';
 import { ReactNode, useEffect, useRef } from 'react';
 
@@ -9,7 +9,7 @@ export interface SidebarProps {
   isBroken?: boolean;
 }
 
-const Sidebar = (
+export const Sidebar = (
   { children, isToggled = false, onBackdropClick, isBroken = false }:
     SidebarProps,
 ) => {
@@ -39,5 +39,3 @@ const Sidebar = (
     </div>
   );
 };
-
-export default Sidebar;

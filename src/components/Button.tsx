@@ -15,7 +15,7 @@ export interface ButtonProps {
   style?: CSSProperties;
 }
 
-const Button = forwardRef(({
+export const Button = forwardRef(({
   children,
   className,
   kind = 'secondary',
@@ -33,5 +33,3 @@ const Button = forwardRef(({
     </button>
   );
 });
-
-export default Button;
