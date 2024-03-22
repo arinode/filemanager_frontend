@@ -18,7 +18,7 @@ const useWatchMediaQuery = (query: string): boolean => {
     return () => {
       media.removeEventListener('change', onChange);
     };
-  }, [isMatches]);
+  }, [isMatches, query]);
 
   return isMatches;
 };
