@@ -1,5 +1,6 @@
-import { Button } from './index';
 import './Sidebar.css';
+
+import { Button } from './index';
 import { ReactNode, useEffect, useRef } from 'react';
 
 export interface SidebarProps {

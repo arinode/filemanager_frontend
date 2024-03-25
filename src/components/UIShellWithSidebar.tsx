@@ -1,3 +1,5 @@
+import './UIShellWithSidebar.css';
+
 import { useState } from 'react';
 import {
   Sidebar,
@@ -5,7 +7,6 @@ import {
   UIShellWithSidebarContextProps,
 } from './index';
 import { useWatchMediaQuery } from '../utils';
-import './UIShellWithSidebar.css';
 
 export interface UIShellWithSidebarProps {
   sidebarChildren: React.ReactElement;

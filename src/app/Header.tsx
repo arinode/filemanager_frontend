@@ -1,5 +1,6 @@
-import { useState } from 'react';
 import './Header.css';
+
+import { useState } from 'react';
 import { Button, TextInput, useUIShellWithSidebarContext } from '../components';
 
 const Header = () => {

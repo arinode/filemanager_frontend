@@ -1,5 +1,6 @@
-import { CSSProperties, ForwardedRef, forwardRef, ReactNode } from 'react';
 import './Button.css';
+
+import { CSSProperties, ForwardedRef, forwardRef, ReactNode } from 'react';
 
 export interface ButtonProps {
   children: ReactNode;

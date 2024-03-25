@@ -1,7 +1,8 @@
+import './DirEntryTable.css';
+
 import DirEntry from '../direntry';
 import { formatBytes } from '../utils';
 import { Button } from './index';
-import './DirEntryTable.css';
 
 export interface DirEntryTableProps {
   entries: DirEntry[];
