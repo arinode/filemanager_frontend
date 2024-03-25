@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './Header.css';
-import { Button, TextInput, useUIShellWithSidebarContext } from './components';
+import { Button, TextInput, useUIShellWithSidebarContext } from '../components';
 
 const Header = () => {
   const { isNarrowScreen, setIsSidebarToggled } =
