@@ -4,6 +4,8 @@ import FileBrowser from './FileBrowser';
 import Header from './Header';
 import Toolbar from './Toolbar';
 import { Button, HorizontalRule, UIShellWithSidebar } from '../components';
+import { Provider } from 'react-redux';
+import { store } from './store';
 
 const App = () => {
   const sidebarChildren = (
@@ -28,11 +30,13 @@ const App = () => {
 
   const mainChildren = (
     <>
-      <Header />
-      <main>
-        <Toolbar />
-        <FileBrowser />
-      </main>
+      <Provider store={store}>
+        <Header />
+        <main>
+          <Toolbar />
+          <FileBrowser />
+        </main>
+      </Provider>
     </>
   );
 
