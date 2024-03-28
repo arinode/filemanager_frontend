@@ -21,6 +21,10 @@
   height: 3cap;
 }
 
+.dir-entry-table tbody tr:hover {
+  background: var(--ar-button-flat-hover);
+}
+
 .dir-entry-table th>button {
   width: 100%;
   text-align: start;
