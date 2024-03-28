@@ -6,16 +6,16 @@ import { useGetEntryChildrenQuery } from '../features/api/apiSlice';
 const FileBrowser = () => {
   const { data: children, isLoading, isFetching, isError } =
     useGetEntryChildrenQuery(
-      '/',
+      '',
     );
 
   console.log(children);
 
-  if (isLoading || isFetching || children === undefined) {
+  if (isLoading || isFetching) {
     return 'loading';
   }
 
-  if (isError) {
+  if (isError || children === undefined) {
     return 'error';
   }
 
