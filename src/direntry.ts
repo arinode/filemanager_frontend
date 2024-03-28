@@ -1,4 +1,4 @@
-type DirEntry = {
+export type DirEntry = {
   id: number;
   name: string;
   size: number;
