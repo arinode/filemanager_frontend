@@ -1,11 +1,11 @@
 import './DirEntryTable.css';
 
-import DirEntry from '../direntry';
 import { formatBytes } from '../utils';
 import { Button } from './index';
+import { EntryMetadata } from '../types';
 
 export interface DirEntryTableProps {
-  entries: DirEntry[];
+  entries: EntryMetadata[];
 }
 
 export const DirEntryTable = ({ entries }: DirEntryTableProps) => {
@@ -28,10 +28,10 @@ export const DirEntryTable = ({ entries }: DirEntryTableProps) => {
   );
 };
 
-const DirEntryTableRow = ({ name, size }: DirEntry) => {
+const DirEntryTableRow = ({ basename, size }: EntryMetadata) => {
   return (
     <tr>
-      <td>{name}</td>
+      <td>{basename}</td>
       <td>{formatBytes(size)}</td>
     </tr>
   );
