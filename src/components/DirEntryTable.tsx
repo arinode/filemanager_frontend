@@ -1,6 +1,6 @@
 import './DirEntryTable.css';
 
-import { formatBytes } from '../utils';
+import { formatBytes, formatUnixTimestamp } from '../utils';
 import { Button } from './index';
 import { EntryMetadata } from '../types';
 
@@ -16,7 +16,13 @@ export const DirEntryTable = ({ entries }: DirEntryTableProps) => {
           <th>
             <Button kind='flat'>Name</Button>
           </th>
-          <th data-col-type='size'>
+          <th className='date'>
+            <Button kind='flat'>Created</Button>
+          </th>
+          <th className='date'>
+            <Button kind='flat'>Modified</Button>
+          </th>
+          <th className='size'>
             <Button kind='flat'>Size</Button>
           </th>
         </tr>
@@ -28,11 +34,15 @@ export const DirEntryTable = ({ entries }: DirEntryTableProps) => {
   );
 };
 
-const DirEntryTableRow = ({ basename, size }: EntryMetadata) => {
+const DirEntryTableRow = (
+  { basename, created, size, modified }: EntryMetadata,
+) => {
   return (
     <tr>
       <td>{basename}</td>
-      <td>{formatBytes(size)}</td>
+      <td className='date'>{formatUnixTimestamp(created)}</td>
+      <td className='date'>{formatUnixTimestamp(modified)}</td>
+      <td className='size'>{formatBytes(size)}</td>
     </tr>
   );
 };

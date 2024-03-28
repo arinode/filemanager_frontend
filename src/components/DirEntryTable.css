@@ -30,6 +30,10 @@
   border-bottom: 1px solid var(--ar-border);
 }
 
-.dir-entry-table th[data-col-type="size"] {
+.dir-entry-table th.size {
   width: 10ch;
+}
+
+.dir-entry-table th.date {
+  width: 17ch;
 }
