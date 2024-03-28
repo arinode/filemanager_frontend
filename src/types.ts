@@ -2,7 +2,14 @@ export type EntryMetadata = {
   basename: string;
   size: number;
   isSymlink: boolean;
-  kind: 'file' | 'dir' | 'other';
+  kind: EntryKind;
   created: number;
   modified: number;
+};
+
+export type EntryKind = 'file' | 'dir' | 'other';
+
+export type EntryChildren = {
+  prefix: string;
+  children: EntryMetadata[];
 };
