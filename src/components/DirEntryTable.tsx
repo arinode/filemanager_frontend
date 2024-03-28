@@ -40,9 +40,9 @@ const DirEntryTableRow = (
   return (
     <tr>
       <td>{basename}</td>
-      <td className='date'>{formatUnixTimestamp(created)}</td>
-      <td className='date'>{formatUnixTimestamp(modified)}</td>
-      <td className='size'>{formatBytes(size)}</td>
+      <td>{formatUnixTimestamp(created)}</td>
+      <td>{formatUnixTimestamp(modified)}</td>
+      <td>{formatBytes(size)}</td>
     </tr>
   );
 };
