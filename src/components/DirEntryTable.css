@@ -39,6 +39,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  padding-left: 1ch;
 }
 
 .dir-entry-table th.size {
