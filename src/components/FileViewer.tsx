@@ -41,11 +41,11 @@ interface MediaComponentProps {
 
 const MediaComponent = ({ registry, url }: MediaComponentProps) => {
   if (registry === 'video') {
-    return <video controls src={url} />;
+    return <video autoPlay controls src={url} />;
   }
 
   if (registry === 'audio') {
-    return <audio controls src={url} />;
+    return <audio autoPlay controls src={url} />;
   }
 
   if (registry === 'image') {
