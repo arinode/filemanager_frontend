@@ -18,7 +18,7 @@ export interface ButtonProps {
 
 export const Button = forwardRef(({
   children,
-  className,
+  className = '',
   kind = 'secondary',
   onClick = (e) => console.error('onClick handler is not bound', e),
   style,
