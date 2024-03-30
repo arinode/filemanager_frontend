@@ -1,11 +1,11 @@
 import './App.css';
 
-import FileBrowser from './FileBrowser';
 import Header from './Header';
 import Toolbar from './Toolbar';
 import { Button, HorizontalRule, UIShellWithSidebar } from '../components';
 import { Provider } from 'react-redux';
 import { store } from './store';
+import { Outlet } from 'react-router-dom';
 
 const App = () => {
   const sidebarChildren = (
@@ -34,7 +34,7 @@ const App = () => {
         <Header />
         <main>
           <Toolbar />
-          <FileBrowser />
+          <Outlet />
         </main>
       </Provider>
     </>
