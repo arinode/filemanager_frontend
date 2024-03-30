@@ -5,12 +5,14 @@ import { Button } from './index';
 import { EntryMetadata } from '../types';
 
 export interface DirEntryTableProps {
-  entries: EntryMetadata[];
+  entries?: EntryMetadata[];
   onEntryClick?: (entry: EntryMetadata) => void;
+  disabled?: boolean;
 }
 
 export const DirEntryTable = (
-  { entries, onEntryClick = () => {} }: DirEntryTableProps,
+  { entries = [], disabled = false, onEntryClick = () => {} }:
+    DirEntryTableProps,
 ) => {
   const tableRows = entries.map((e) => {
     return (
@@ -22,7 +24,7 @@ export const DirEntryTable = (
   });
 
   return (
-    <table className='dir-entry-table'>
+    <table className={`dir-entry-table ${disabled ? 'disabled' : ''}`}>
       <thead>
         <tr>
           <th>
