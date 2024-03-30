@@ -2,12 +2,14 @@ import './FileBrowser.css';
 
 import { DirEntryTable } from '../components';
 import { useGetEntryChildrenQuery } from '../features/api/apiSlice';
+import { useParams } from 'react-router-dom';
 
 const FileBrowser = () => {
+  const params = useParams();
+  const path = params['*'] ?? '';
+
   const { data: children, isLoading, isFetching, isError } =
-    useGetEntryChildrenQuery(
-      '',
-    );
+    useGetEntryChildrenQuery(path);
 
   console.log(children);
 
