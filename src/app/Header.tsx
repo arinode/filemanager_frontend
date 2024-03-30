@@ -15,7 +15,7 @@ const Header = () => {
   };
 
   return (
-    <header>
+    <header className='app-header'>
       <Button
         kind='flat'
         style={style}

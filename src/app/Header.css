@@ -1,4 +1,4 @@
-header {
+.app-header {
   height: 5cap;
 
   display: flex;
@@ -9,16 +9,16 @@ header {
   padding-right: 1ch;
 }
 
-header>.button {
+.app-header>.button {
   display: none;
 }
 
 @media (max-width: 90ch) {
-  header>.button {
+  .app-header>.button {
     display: block;
   }
 
-  header {
+  .app-header {
     justify-content: space-between;
   }
 }
