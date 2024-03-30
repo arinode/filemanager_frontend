@@ -1,8 +1,8 @@
 import './FileBrowser.css';
 
-import { DirEntryTable } from '../components';
+import { DirEntryTable, FileViewer } from '../components';
 import { useGetEntryChildrenQuery } from '../features/api/apiSlice';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { EntryMetadata } from '../types';
 
 const FileBrowser = () => {
@@ -40,6 +40,22 @@ const FileBrowser = () => {
     }
   };
 
+  let fileViewer: React.ReactElement | null = null;
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const fileParam = searchParams.get('file');
+
+  if (fileParam !== null) {
+    const url = `/api/entries/${path}${fileParam}?alt=raw`;
+    console.log(url);
+    fileViewer = (
+      <FileViewer
+        url={url}
+        onCloseClick={() => setSearchParams('')}
+      />
+    );
+  }
+
   return (
     <div className='file-browser'>
       <DirEntryTable
@@ -47,6 +63,7 @@ const FileBrowser = () => {
         entries={children?.children}
         onEntryClick={handleOnEntryClick}
       />
+      {fileViewer}
     </div>
   );
 };
