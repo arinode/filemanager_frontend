@@ -6,3 +6,4 @@ export * from './UIShellWithSidebarContext.tsx';
 export * from './Breadcrumbs.tsx';
 export * from './TextInput.tsx';
 export * from './Sidebar.tsx';
+export * from './FileViewer.tsx';
