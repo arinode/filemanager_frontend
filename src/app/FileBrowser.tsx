@@ -29,7 +29,15 @@ const FileBrowser = () => {
   console.log(children);
 
   const handleOnEntryClick = (e: EntryMetadata) => {
-    navigate(`${path}${e.basename}/`, { relative: 'path' });
+    if (e.kind === 'file') {
+      navigate(`?file=${e.basename}`);
+      return;
+    }
+
+    if (e.kind === 'dir') {
+      navigate(`${path}${e.basename}/`, { relative: 'path' });
+      return;
+    }
   };
 
   return (
