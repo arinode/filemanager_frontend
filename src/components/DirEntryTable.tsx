@@ -6,9 +6,21 @@ import { EntryMetadata } from '../types';
 
 export interface DirEntryTableProps {
   entries: EntryMetadata[];
+  onEntryClick?: (entry: EntryMetadata) => void;
 }
 
-export const DirEntryTable = ({ entries }: DirEntryTableProps) => {
+export const DirEntryTable = (
+  { entries, onEntryClick = () => {} }: DirEntryTableProps,
+) => {
+  const tableRows = entries.map((e) => {
+    return (
+      <DirEntryTableRow
+        entry={e}
+        onClick={() => onEntryClick(e)}
+      />
+    );
+  });
+
   return (
     <table className='dir-entry-table'>
       <thead>
@@ -28,17 +40,24 @@ export const DirEntryTable = ({ entries }: DirEntryTableProps) => {
         </tr>
       </thead>
       <tbody>
-        {entries.map((e) => <DirEntryTableRow {...e} />)}
+        {tableRows}
       </tbody>
     </table>
   );
 };
 
+export interface DirEntryTableRowProps {
+  entry: EntryMetadata;
+  onClick: React.MouseEventHandler<HTMLTableRowElement>;
+}
+
 const DirEntryTableRow = (
-  { basename, created, size, modified }: EntryMetadata,
+  { entry, onClick }: DirEntryTableRowProps,
 ) => {
+  const { basename, created, size, modified } = entry;
+
   return (
-    <tr>
+    <tr onClick={onClick}>
       <td>{basename}</td>
       <td>{formatUnixTimestamp(created)}</td>
       <td>{formatUnixTimestamp(modified)}</td>
