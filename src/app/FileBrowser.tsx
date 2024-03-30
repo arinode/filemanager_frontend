@@ -7,6 +7,7 @@ import { EntryMetadata } from '../types';
 
 const FileBrowser = () => {
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const params = useParams();
   let path = params['*'] ?? '';
@@ -30,7 +31,7 @@ const FileBrowser = () => {
 
   const handleOnEntryClick = (e: EntryMetadata) => {
     if (e.kind === 'file') {
-      navigate(`?file=${e.basename}`);
+      setSearchParams({ file: e.basename });
       return;
     }
 
@@ -42,9 +43,7 @@ const FileBrowser = () => {
 
   let fileViewer: React.ReactElement | null = null;
 
-  const [searchParams, setSearchParams] = useSearchParams();
   const fileParam = searchParams.get('file');
-
   if (fileParam !== null) {
     const url = `/api/entries/${path}${fileParam}?alt=raw`;
     console.log(url);
