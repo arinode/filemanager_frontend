@@ -17,12 +17,13 @@ const FileBrowser = () => {
   const { data: children, isLoading, isFetching, isError } =
     useGetEntryChildrenQuery(path);
 
-  if (isLoading || isFetching) {
-    return 'loading';
+  if (isError) {
+    return 'error';
   }
 
-  if (isError || children === undefined) {
-    return 'error';
+  let disabled = false;
+  if (isLoading || isFetching || children === undefined) {
+    disabled = true;
   }
 
   console.log(children);
@@ -34,7 +35,8 @@ const FileBrowser = () => {
   return (
     <div className='file-browser'>
       <DirEntryTable
-        entries={children.children}
+        disabled={disabled}
+        entries={children?.children}
         onEntryClick={handleOnEntryClick}
       />
     </div>
