@@ -43,3 +43,8 @@
 .file-viewer audio {
   width: 75%;
 }
+
+.file-viewer audio:focus,
+.file-viewer video:focus {
+  outline: none;
+}
