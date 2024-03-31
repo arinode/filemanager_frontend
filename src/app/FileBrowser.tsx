@@ -46,10 +46,12 @@ const FileBrowser = () => {
   const fileParam = searchParams.get('file');
   if (fileParam !== null) {
     const url = `/api/entries/${path}${fileParam}?alt=raw`;
+    const coverUrl = `/api/entries/${path}${fileParam}?alt=cover`;
     console.log(url);
     fileViewer = (
       <FileViewer
         url={url}
+        coverUrl={coverUrl}
         onCloseClick={() => setSearchParams('')}
       />
     );

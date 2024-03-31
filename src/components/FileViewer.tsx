@@ -4,10 +4,13 @@ import { Button } from './Button';
 
 export interface FileViewerProps {
   url: string;
+  coverUrl?: string;
   onCloseClick: () => void;
 }
 
-export const FileViewer = ({ url, onCloseClick }: FileViewerProps) => {
+export const FileViewer = (
+  { url, onCloseClick, coverUrl }: FileViewerProps,
+) => {
   const { registry, error } = useGetRegistry(url);
 
   const content = (() => {
@@ -19,7 +22,7 @@ export const FileViewer = ({ url, onCloseClick }: FileViewerProps) => {
       return <h3>loading...</h3>;
     }
 
-    return <MediaComponent url={url} registry={registry} />;
+    return <MediaComponent url={url} registry={registry} coverUrl={coverUrl} />;
   })();
 
   return (
@@ -37,15 +40,32 @@ export const FileViewer = ({ url, onCloseClick }: FileViewerProps) => {
 interface MediaComponentProps {
   registry: string;
   url: string;
+  coverUrl?: string;
 }
 
-const MediaComponent = ({ registry, url }: MediaComponentProps) => {
+const MediaComponent = (
+  { registry, url, coverUrl = '/cover.jpg' }: MediaComponentProps,
+) => {
   if (registry === 'video') {
     return <video autoPlay controls src={url} />;
   }
 
+  // const ref = ;
+
   if (registry === 'audio') {
-    return <audio autoPlay controls src={url} />;
+    return (
+      <>
+        <img
+          src={coverUrl}
+          onError={({ currentTarget }) => {
+            if (!currentTarget.src.endsWith('/cover.jpg')) {
+              currentTarget.src = '/cover.jpg';
+            }
+          }}
+        />
+        <audio autoPlay controls src={url} />
+      </>
+    );
   }
 
   if (registry === 'image') {
