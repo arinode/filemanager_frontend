@@ -15,6 +15,10 @@ export const FileViewer = (
 
   const mediaElementRef = useRef<HTMLVideoElement>(null);
 
+  useEffect(() => {
+    mediaElementRef.current?.focus();
+  });
+
   const content = (() => {
     if (error !== undefined) {
       return <h3>{error}</h3>;
@@ -24,9 +28,16 @@ export const FileViewer = (
       return <h3>loading...</h3>;
     }
 
-    return <MediaComponent ref={mediaElementRef} url={url} registry={registry} coverUrl={coverUrl} />;
+    return (
+      <MediaComponent
+        ref={mediaElementRef}
+        url={url}
+        registry={registry}
+        coverUrl={coverUrl}
+      />
+    );
   })();
-  
+
   const handleOnKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     console.log(e.key);
     const current = mediaElementRef.current;
@@ -35,14 +46,17 @@ export const FileViewer = (
       return;
     }
 
-    if (e.key === "p" || (e.key == " " && !["audio", "video"].includes(e.currentTarget.tagName))) {
+    if (
+      e.key === 'p' ||
+      (e.key == ' ' && !['audio', 'video'].includes(e.currentTarget.tagName))
+    ) {
       current.paused ? current.play() : current.pause();
     }
 
-    if (["q", "Escape"].includes(e.key)) {
+    if (['q', 'Escape'].includes(e.key)) {
       onCloseClick();
     }
-  }
+  };
 
   return (
     <div onKeyDown={handleOnKeyDown} tabIndex={-1} className='file-viewer'>
@@ -63,7 +77,8 @@ interface MediaComponentProps {
 }
 
 const MediaComponent = forwardRef<HTMLVideoElement, MediaComponentProps>((
-  { registry, url, coverUrl = '/cover.jpg' }, ref
+  { registry, url, coverUrl = '/cover.jpg' },
+  ref,
 ) => {
   if (registry === 'video') {
     return <video ref={ref} autoPlay controls src={url} />;
