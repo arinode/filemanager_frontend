@@ -132,7 +132,7 @@ const useGetRegistry = (url: string) => {
     );
 
     fetch(url, { method: 'HEAD', signal: controller.signal })
-      .then((r) => {
+      .then((r): void => {
         if (r.status === 404) {
           throw new Error('not found');
         }
