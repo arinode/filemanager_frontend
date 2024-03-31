@@ -125,13 +125,14 @@ const useGetRegistry = (url: string) => {
 
   useEffect(() => {
     const controller = new AbortController();
+    const signal = controller.signal;
 
     const timeoutId = setTimeout(
-      () => controller.abort(new Error('timed out')),
+      () => controller.abort('timed out'),
       2500,
     );
 
-    fetch(url, { method: 'HEAD', signal: controller.signal })
+    fetch(url, { method: 'HEAD', signal: signal })
       .then((r): void => {
         if (r.status === 404) {
           throw new Error('not found');
@@ -159,16 +160,16 @@ const useGetRegistry = (url: string) => {
         setRegistry(responseRegistry);
       })
       .catch((e: Error) => {
-        if (e.message === 'useEffect clear') {
+        if (signal.aborted && signal.reason === 'useEffect clear') {
           return;
         }
 
-        setError(`Error: ${e.message}`);
+        setError(`"${e.name}" "${e.message}"`);
       });
 
     return () => {
       clearTimeout(timeoutId);
-      controller.abort(new Error('useEffect clear'));
+      controller.abort('useEffect clear');
     };
   }, [url]);
 
