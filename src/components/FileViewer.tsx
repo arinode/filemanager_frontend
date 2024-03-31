@@ -5,11 +5,11 @@ import { Button } from './Button';
 export interface FileViewerProps {
   url: string;
   coverUrl?: string;
-  onCloseClick: () => void;
+  onCloseRequested: () => void;
 }
 
 export const FileViewer = (
-  { url, onCloseClick, coverUrl }: FileViewerProps,
+  { url, onCloseRequested, coverUrl }: FileViewerProps,
 ) => {
   const { registry, error } = useGetRegistry(url);
 
@@ -51,7 +51,7 @@ export const FileViewer = (
     }
 
     if (['q', 'Escape'].includes(e.key)) {
-      onCloseClick();
+      onCloseRequested();
     }
   };
 
@@ -67,7 +67,7 @@ export const FileViewer = (
       className='file-viewer'
     >
       <header>
-        <Button onClick={onCloseClick}>Close</Button>
+        <Button onClick={onCloseRequested}>Close</Button>
       </header>
       <div className='media-container'>
         {content}

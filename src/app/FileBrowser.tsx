@@ -52,7 +52,7 @@ const FileBrowser = () => {
       <FileViewer
         url={url}
         coverUrl={coverUrl}
-        onCloseClick={() => navigate(-1)}
+        onCloseRequested={() => navigate(-1)}
       />
     );
   }
