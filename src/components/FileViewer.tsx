@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { forwardRef, useEffect, useRef, useState } from 'react';
 import './FileViewer.css';
 import { Button } from './Button';
 
@@ -13,6 +13,8 @@ export const FileViewer = (
 ) => {
   const { registry, error } = useGetRegistry(url);
 
+  const mediaElementRef = useRef<HTMLVideoElement>(null);
+
   const content = (() => {
     if (error !== undefined) {
       return <h3>{error}</h3>;
@@ -22,11 +24,28 @@ export const FileViewer = (
       return <h3>loading...</h3>;
     }
 
-    return <MediaComponent url={url} registry={registry} coverUrl={coverUrl} />;
+    return <MediaComponent ref={mediaElementRef} url={url} registry={registry} coverUrl={coverUrl} />;
   })();
+  
+  const handleOnKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    console.log(e.key);
+    const current = mediaElementRef.current;
+
+    if (current === null) {
+      return;
+    }
+
+    if (e.key === "p" || (e.key == " " && !["audio", "video"].includes(e.currentTarget.tagName))) {
+      current.paused ? current.play() : current.pause();
+    }
+
+    if (["q", "Escape"].includes(e.key)) {
+      onCloseClick();
+    }
+  }
 
   return (
-    <div className='file-viewer'>
+    <div onKeyDown={handleOnKeyDown} tabIndex={-1} className='file-viewer'>
       <header>
         <Button onClick={onCloseClick}>Close</Button>
       </header>
@@ -43,14 +62,12 @@ interface MediaComponentProps {
   coverUrl?: string;
 }
 
-const MediaComponent = (
-  { registry, url, coverUrl = '/cover.jpg' }: MediaComponentProps,
+const MediaComponent = forwardRef<HTMLVideoElement, MediaComponentProps>((
+  { registry, url, coverUrl = '/cover.jpg' }, ref
 ) => {
   if (registry === 'video') {
-    return <video autoPlay controls src={url} />;
+    return <video ref={ref} autoPlay controls src={url} />;
   }
-
-  // const ref = ;
 
   if (registry === 'audio') {
     return (
@@ -63,7 +80,7 @@ const MediaComponent = (
             }
           }}
         />
-        <audio autoPlay controls src={url} />
+        <audio ref={ref} autoPlay controls src={url} />
       </>
     );
   }
@@ -73,7 +90,7 @@ const MediaComponent = (
   }
 
   return <h3>{`registry "${registry}" is not supported`}</h3>;
-};
+});
 
 const useGetRegistry = (url: string) => {
   const [registry, setRegistry] = useState<string | undefined>();
