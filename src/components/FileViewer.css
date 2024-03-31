@@ -39,3 +39,7 @@
 .file-viewer audio {
   width: 75%;
 }
+
+.file-viewer img:has(+ audio) {
+  height: 55%;
+}
