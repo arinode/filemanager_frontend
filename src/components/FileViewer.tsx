@@ -34,6 +34,10 @@ export const FileViewer = (
         url={url}
         registry={registry}
         coverUrl={coverUrl}
+        onCoverClick={() => {
+          const current = mediaElementRef.current;
+          current?.paused ? current.play() : current?.pause();
+        }}
       />
     );
   })();
@@ -80,10 +84,11 @@ interface MediaComponentProps {
   registry: string;
   url: string;
   coverUrl?: string;
+  onCoverClick?: React.MouseEventHandler<HTMLImageElement>;
 }
 
 const MediaComponent = forwardRef<HTMLVideoElement, MediaComponentProps>((
-  { registry, url, coverUrl = '/cover.jpg' },
+  { registry, url, coverUrl = '/cover.jpg', onCoverClick },
   ref,
 ) => {
   if (registry === 'video') {
@@ -95,6 +100,7 @@ const MediaComponent = forwardRef<HTMLVideoElement, MediaComponentProps>((
       <>
         <img
           src={coverUrl}
+          onClick={onCoverClick}
           onError={({ currentTarget }) => {
             if (!currentTarget.src.endsWith('/cover.jpg')) {
               currentTarget.src = '/cover.jpg';
