@@ -16,7 +16,7 @@
 .file-viewer>header {
   position: absolute;
   top: 1cap;
-  left: 1ch;
+  right: 1.5ch;
 }
 
 .file-viewer>.media-container {
