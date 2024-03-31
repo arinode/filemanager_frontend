@@ -138,7 +138,7 @@ const useGetRegistry = (url: string) => {
         }
 
         if (r.status !== 200) {
-          throw new Error('response status is not 200');
+          throw new Error(`response status was ${r.status}`);
         }
 
         const contentType = r.headers.get('Content-Type');
