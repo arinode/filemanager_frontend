@@ -153,7 +153,7 @@ const useGetRegistry = (url: string) => {
           responseRegistry !== 'video' && responseRegistry !== 'audio' &&
           responseRegistry !== 'image'
         ) {
-          throw new Error('Content-Type is not supported');
+          throw new Error(`Content-Type "${contentType}" is not supported`);
         }
 
         setRegistry(responseRegistry);
