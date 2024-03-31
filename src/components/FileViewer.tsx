@@ -46,10 +46,7 @@ export const FileViewer = (
       return;
     }
 
-    if (
-      e.key === 'p' ||
-      (e.key == ' ' && !['audio', 'video'].includes(e.currentTarget.tagName))
-    ) {
+    if (e.key === 'p') {
       current.paused ? current.play() : current.pause();
     }
 
@@ -58,8 +55,17 @@ export const FileViewer = (
     }
   };
 
+  const handleOnClick = (_: React.MouseEvent<HTMLDivElement>) => {
+    mediaElementRef.current?.focus();
+  };
+
   return (
-    <div onKeyDown={handleOnKeyDown} tabIndex={-1} className='file-viewer'>
+    <div
+      onKeyDown={handleOnKeyDown}
+      onClick={handleOnClick}
+      tabIndex={-1}
+      className='file-viewer'
+    >
       <header>
         <Button onClick={onCloseClick}>Close</Button>
       </header>
