@@ -44,6 +44,10 @@
   width: 75%;
 }
 
+.file-viewer video {
+  background: #333;
+}
+
 .file-viewer audio:focus,
 .file-viewer video:focus {
   outline: none;
