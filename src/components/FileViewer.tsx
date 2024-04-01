@@ -54,6 +54,18 @@ export const FileViewer = (
       current.paused ? current.play() : current.pause();
     }
 
+    if (e.key === 'f') {
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+        return;
+      }
+
+      if (current.tagName === "VIDEO") {
+        current.requestFullscreen();
+        return;
+      }
+    }
+
     if (['q', 'Escape'].includes(e.key)) {
       onCloseRequested();
     }
