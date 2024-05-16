@@ -13,9 +13,11 @@ export const FileViewer = (
 ) => {
   const { registry, error } = useGetRegistry(url);
 
-  const mediaElementRef = useRef<HTMLVideoElement>(null);
+  const mediaElementRef = useRef<any>(null);
 
   useEffect(() => {
+    console.log('focusing');
+    console.log(mediaElementRef.current);
     mediaElementRef.current?.focus();
   });
 
@@ -99,37 +101,39 @@ interface MediaComponentProps {
   onCoverClick?: React.MouseEventHandler<HTMLImageElement>;
 }
 
-const MediaComponent = forwardRef<HTMLVideoElement, MediaComponentProps>((
-  { registry, url, coverUrl = '/cover.jpg', onCoverClick },
-  ref,
-) => {
-  if (registry === 'video') {
-    return <video ref={ref} autoPlay controls src={url} />;
-  }
+const MediaComponent = forwardRef<any, MediaComponentProps>(
+  (
+    { registry, url, coverUrl = '/cover.jpg', onCoverClick },
+    ref,
+  ) => {
+    if (registry === 'video') {
+      return <video ref={ref} autoPlay controls src={url} />;
+    }
 
-  if (registry === 'audio') {
-    return (
-      <>
-        <img
-          src={coverUrl}
-          onClick={onCoverClick}
-          onError={({ currentTarget }) => {
-            if (!currentTarget.src.endsWith('/cover.jpg')) {
-              currentTarget.src = '/cover.jpg';
-            }
-          }}
-        />
-        <audio ref={ref} autoPlay controls src={url} />
-      </>
-    );
-  }
+    if (registry === 'audio') {
+      return (
+        <>
+          <img
+            src={coverUrl}
+            onClick={onCoverClick}
+            onError={({ currentTarget }) => {
+              if (!currentTarget.src.endsWith('/cover.jpg')) {
+                currentTarget.src = '/cover.jpg';
+              }
+            }}
+          />
+          <audio ref={ref} autoPlay controls src={url} />
+        </>
+      );
+    }
 
-  if (registry === 'image') {
-    return <img src={url} />;
-  }
+    if (registry === 'image') {
+      return <img ref={ref} src={url} tabIndex={1} />;
+    }
 
-  return <h3>{`registry "${registry}" is not supported`}</h3>;
-});
+    return <h3>{`registry "${registry}" is not supported`}</h3>;
+  },
+);
 
 const useGetRegistry = (url: string) => {
   const [registry, setRegistry] = useState<string | undefined>();
