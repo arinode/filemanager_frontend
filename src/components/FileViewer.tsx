@@ -16,8 +16,6 @@ export const FileViewer = (
   const mediaElementRef = useRef<any>(null);
 
   useEffect(() => {
-    console.log('focusing');
-    console.log(mediaElementRef.current);
     mediaElementRef.current?.focus();
   });
 
@@ -45,7 +43,6 @@ export const FileViewer = (
   })();
 
   const handleOnKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    console.log(e.key);
     const current = mediaElementRef.current;
 
     if (['q', 'Escape'].includes(e.key)) {
