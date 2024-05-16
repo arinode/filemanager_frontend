@@ -52,7 +52,7 @@ export const FileViewer = (
       onCloseRequested();
     }
 
-    if (current === null) {
+    if (current === null || current.tagName === 'IMG') {
       return;
     }
 
