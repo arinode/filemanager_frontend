@@ -46,6 +46,10 @@ export const FileViewer = (
     console.log(e.key);
     const current = mediaElementRef.current;
 
+    if (['q', 'Escape'].includes(e.key)) {
+      onCloseRequested();
+    }
+
     if (current === null) {
       return;
     }
@@ -60,14 +64,10 @@ export const FileViewer = (
         return;
       }
 
-      if (current.tagName === "VIDEO") {
+      if (current.tagName === 'VIDEO') {
         current.requestFullscreen();
         return;
       }
-    }
-
-    if (['q', 'Escape'].includes(e.key)) {
-      onCloseRequested();
     }
   };
 
