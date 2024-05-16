@@ -166,10 +166,7 @@ const useGetRegistry = (url: string) => {
 
         const responseRegistry = contentType.split('/')[0];
 
-        if (
-          responseRegistry !== 'video' && responseRegistry !== 'audio' &&
-          responseRegistry !== 'image'
-        ) {
+        if (!['video', 'image', 'audio'].includes(responseRegistry)) {
           throw new Error(`Content-Type "${contentType}" is not supported`);
         }
 
