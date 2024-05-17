@@ -1,8 +1,7 @@
 .toolbar {
   display: flex;
   justify-content: space-between;
-  padding-left: 2ch;
-  padding-right: 2ch;
+  padding-inline: 2ch;
 }
 
 .toolbar>.horizontal-scroll {

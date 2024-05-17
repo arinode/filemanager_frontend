@@ -5,8 +5,7 @@
   align-items: center;
   gap: 1ch;
 
-  padding-left: 1ch;
-  padding-right: 1ch;
+  padding-inline: 1ch;
 }
 
 .app-header>.button {

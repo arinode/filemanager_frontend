@@ -5,8 +5,7 @@
   border: none;
   border-radius: 3px;
 
-  padding-left: 1ch;
-  padding-right: 1ch;
+  padding-inline: 1ch;
 
   background: #f00;
   color: var(--ar-text-primary);
