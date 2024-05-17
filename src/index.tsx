@@ -3,7 +3,11 @@ import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './app/App.tsx';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from 'react-router-dom';
 import FileBrowser from './app/FileBrowser.tsx';
 
 const router = createBrowserRouter([
@@ -11,6 +15,10 @@ const router = createBrowserRouter([
     path: '/',
     element: <App />,
     children: [
+      {
+        path: '',
+        element: <Navigate to='/dirs/' replace />,
+      },
       {
         path: 'dirs/*',
         element: <FileBrowser />,
