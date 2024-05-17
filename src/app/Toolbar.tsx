@@ -5,7 +5,9 @@ import { Breadcrumbs, Button } from '../components';
 const Toolbar = () => {
   return (
     <div className='toolbar'>
-      <Breadcrumbs />
+      <div className='horizontal-scroll'>
+        <Breadcrumbs />
+      </div>
       <menu>
         <li>
           <Button kind='flat'>New directory</Button>

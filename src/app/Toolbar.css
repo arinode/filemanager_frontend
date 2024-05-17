@@ -5,7 +5,12 @@
   padding-right: 2ch;
 }
 
+.toolbar>.horizontal-scroll {
+  overflow-x: scroll;
+}
+
 .toolbar>menu {
+  white-space: nowrap;
   list-style: none;
   padding: 0;
 }
