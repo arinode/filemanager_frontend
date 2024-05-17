@@ -144,7 +144,15 @@ export interface DirEntryTableRowProps {
 const DirEntryTableRow = (
   { entry, prefix, onClick, visibleFields }: DirEntryTableRowProps,
 ) => {
-  const { basename, created, size, modified } = entry;
+  const { basename, created, size, modified, kind } = entry;
+
+  let imgSrc = (() => {
+    if (kind === 'dir') {
+      return `/dir.svg`;
+    }
+
+    return `/api/entries/${prefix}/${basename}?alt=thumb`;
+  })();
 
   return (
     <tr onClick={onClick}>
@@ -153,7 +161,7 @@ const DirEntryTableRow = (
           <td>
             <img
               loading='lazy'
-              src={`/api/entries/${prefix}/${basename}?alt=thumb`}
+              src={imgSrc}
             />
           </td>
         )
