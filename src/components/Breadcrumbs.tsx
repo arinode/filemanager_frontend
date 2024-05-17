@@ -11,17 +11,26 @@ export const Breadcrumbs = () => {
   return (
     <nav className='breadcrumbs' aria-label='breadcrumbs'>
       <ol>
-        {
-        components.map(([i, c]) => {
-          if (i === components.length - 1) {
-            return <a aria-current='location'>{c}</a>;
-          }
+        {components.map(([i, c]) => {
+          const isCurrent = i === components.length - 1;
 
-          return <a>{c}</a>;
-        })
-        .map((link) => <li>{link}</li>)
-      }
+          return <Crumb text={c} link='' isCurrent={isCurrent} />;
+        })}
       </ol>
     </nav>
+  );
+};
+
+export interface CrumbProps {
+  text: string;
+  link: string;
+  isCurrent?: boolean;
+}
+
+export const Crumb = ({ text, link, isCurrent }: CrumbProps) => {
+  return (
+    <a href={link} {...(isCurrent ? { 'aria-current': 'location' } : null)}>
+      {text}
+    </a>
   );
 };
