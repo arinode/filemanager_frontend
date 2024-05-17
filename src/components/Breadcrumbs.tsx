@@ -5,7 +5,11 @@ export interface BreadcrumbsProps {
 }
 
 export const Breadcrumbs = () => {
-  const path = useParams()['*'] ?? '';
+  let path = useParams()['*'] ?? '';
+  if (path.endsWith('/')) {
+    path = path.slice(0, -1);
+  }
+
   const components = Array.from(path.split('/').entries()); // .entries().map() is still experimetal
 
   return (
