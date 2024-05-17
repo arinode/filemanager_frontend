@@ -1,4 +1,5 @@
 export type EntryMetadata = {
+  [key: string]: any;
   basename: string;
   size: number;
   isSymlink: boolean;
