@@ -8,17 +8,6 @@ const Toolbar = () => {
       <div className='horizontal-scroll'>
         <Breadcrumbs />
       </div>
-      <menu>
-        <li>
-          <Button kind='flat'>New directory</Button>
-        </li>
-        <li>
-          <Button kind='flat'>Change view</Button>
-        </li>
-        <li>
-          <Button kind='flat'>More utils</Button>
-        </li>
-      </menu>
     </div>
   );
 };
