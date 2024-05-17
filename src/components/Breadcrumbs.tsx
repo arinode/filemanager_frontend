@@ -15,6 +15,7 @@ export const Breadcrumbs = () => {
   return (
     <nav className='breadcrumbs' aria-label='breadcrumbs'>
       <ol>
+        <Crumb text='/' link='/dirs/' />
         {components.map(([i, c]) => {
           const isCurrent = i === components.length - 1;
 

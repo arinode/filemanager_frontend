@@ -5,8 +5,12 @@
   display: flex;
 }
 
-.breadcrumbs>ol>li:not(:last-child)::after,
-.breadcrumbs>ol>li:is(:first-child)::before {
+.breadcrumbs>ol>li:not(:last-child):not(:first-child)::after {
   content: "/";
   padding-inline: 0.5ch;
+}
+
+.breadcrumbs>ol>li:first-child::after {
+  content: "";
+  padding-inline: 0.25ch;
 }
