@@ -18,8 +18,12 @@ export const Breadcrumbs = () => {
         <Crumb text='/' link='/dirs/' />
         {components.map(([i, c]) => {
           const isCurrent = i === components.length - 1;
+          const url = new URL(
+            '../'.repeat(components.length - i - 1),
+            window.location.href,
+          );
 
-          return <Crumb text={c} link='' isCurrent={isCurrent} />;
+          return <Crumb text={c} link={url.pathname} isCurrent={isCurrent} />;
         })}
       </ol>
     </nav>
@@ -33,9 +37,13 @@ export interface CrumbProps {
 }
 
 export const Crumb = ({ text, link, isCurrent }: CrumbProps) => {
+  console.log(link);
   return (
     <li>
-      <Link to={link} {...(isCurrent ? { 'aria-current': 'location' } : null)}>
+      <Link
+        to={link}
+        {...(isCurrent ? { 'aria-current': 'location' } : null)}
+      >
         {text}
       </Link>
     </li>
