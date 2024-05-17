@@ -1,5 +1,6 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import './Breadcrumbs.css';
+import { Button } from './Button';
 
 export interface BreadcrumbsProps {
 }
@@ -37,15 +38,17 @@ export interface CrumbProps {
 }
 
 export const Crumb = ({ text, link, isCurrent }: CrumbProps) => {
-  console.log(link);
+  const navigate = useNavigate();
+
   return (
     <li>
-      <Link
-        to={link}
+      <Button
+        onClick={() => navigate(link)}
+        kind='flat'
         {...(isCurrent ? { 'aria-current': 'location' } : null)}
       >
         {text}
-      </Link>
+      </Button>
     </li>
   );
 };
