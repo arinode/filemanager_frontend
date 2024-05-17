@@ -3,6 +3,7 @@ import './DirEntryTable.css';
 import { formatBytes, formatUnixTimestamp } from '../utils';
 import { Button } from './index';
 import { EntryMetadata } from '../types';
+import { useMemo, useState } from 'react';
 
 type EntryField = 'basename' | 'size' | 'created' | 'modified';
 
@@ -21,37 +22,84 @@ export const DirEntryTable = (
     visibleFields = ['basename', 'size', 'modified'],
   }: DirEntryTableProps,
 ) => {
-  const tableRows = entries.map((e) => {
-    return (
-      <DirEntryTableRow
-        entry={e}
-        onClick={() => onEntryClick(e)}
-        visibleFields={visibleFields}
-      />
-    );
-  });
+  const [sortingField, setSortingField] = useState('basename');
+  const [sortAscending, setSortAscending] = useState(true);
+
+  const tableRows = useMemo(() => {
+    const sortedEntries = entries.toSorted((a, b) => {
+      const fieldA = a[sortingField];
+      const fieldB = b[sortingField];
+
+      let order = (() => {
+        if (typeof fieldA === 'string') {
+          return fieldA.localeCompare(fieldB);
+        }
+
+        if (fieldA < fieldB) {
+          return -1;
+        }
+        if (fieldA > fieldB) {
+          return 1;
+        }
+        return 0;
+      })();
+
+      if (!sortAscending) {
+        order = order * -1;
+      }
+
+      return order;
+    });
+
+    return sortedEntries.map((e) => {
+      return (
+        <DirEntryTableRow
+          entry={e}
+          onClick={() => onEntryClick(e)}
+          visibleFields={visibleFields}
+        />
+      );
+    });
+  }, [entries, sortingField, sortAscending]);
+
+  const handleThClick = (field: string) => {
+    setSortingField(field);
+    setSortAscending(!sortAscending);
+  };
 
   const thBasename = (
     <th>
-      <Button kind='flat'>Name</Button>
+      <Button
+        kind='flat'
+        onClick={() => handleThClick('basename')}
+      >
+        Name
+      </Button>
     </th>
   );
 
   const thCreated = (
     <th className='date'>
-      <Button kind='flat'>Created</Button>
+      <Button kind='flat' onClick={() => handleThClick('created')}>
+        Created
+      </Button>
     </th>
   );
 
   const thModified = (
     <th className='date'>
-      <Button kind='flat'>Modified</Button>
+      <Button
+        kind='flat'
+        onClick={() => handleThClick('modified')}
+      >
+        Modified
+      </Button>
     </th>
   );
 
   const thSize = (
     <th className='size'>
-      <Button kind='flat'>Size</Button>
+      <Button kind='flat' onClick={() => handleThClick('size')}>Size</Button>
     </th>
   );
 
