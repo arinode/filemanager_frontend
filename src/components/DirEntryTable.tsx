@@ -146,12 +146,31 @@ const DirEntryTableRow = (
 ) => {
   const { basename, created, size, modified, kind } = entry;
 
-  let imgSrc = (() => {
+  const [imgSrc, fallbackSrc] = (() => {
     if (kind === 'dir') {
-      return `/dir.svg`;
+      return [`/dir.svg`, '/dir.svg'];
     }
 
-    return `/api/entries/${prefix}/${basename}?alt=thumb`;
+    if (kind === 'other') {
+      return [`/file.svg`, '/file.svg'];
+    }
+
+    const ext = basename.split('.').at(-1)!;
+    const thumbUrl = `/api/entries/${prefix}/${basename}?alt=thumb`;
+
+    if (['opus', 'aac', 'mp3', 'flac', 'ogg'].includes(ext)) {
+      return [thumbUrl, '/audio.svg'];
+    }
+
+    if (['webm', 'mkv', 'mp4'].includes(ext)) {
+      return [thumbUrl, '/video.svg'];
+    }
+
+    if (['avif', 'jxl', 'webp', 'jpeg', 'jpg', 'png', 'gif'].includes(ext)) {
+      return [thumbUrl, '/image.svg'];
+    }
+
+    return [`/file.svg`, '/file.svg'];
   })();
 
   return (
@@ -162,6 +181,11 @@ const DirEntryTableRow = (
             <img
               loading='lazy'
               src={imgSrc}
+              onError={({ currentTarget }) => {
+                if (!currentTarget.src.endsWith(fallbackSrc)) {
+                  currentTarget.src = fallbackSrc;
+                }
+              }}
             />
           </td>
         )
