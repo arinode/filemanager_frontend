@@ -33,8 +33,10 @@ export interface CrumbProps {
 
 export const Crumb = ({ text, link, isCurrent }: CrumbProps) => {
   return (
-    <a href={link} {...(isCurrent ? { 'aria-current': 'location' } : null)}>
-      {text}
-    </a>
+    <li>
+      <a href={link} {...(isCurrent ? { 'aria-current': 'location' } : null)}>
+        {text}
+      </a>
+    </li>
   );
 };
