@@ -2,10 +2,12 @@
   height: 100%;
   width: 100%;
   display: flex;
+  min-width: 0;
 }
 
 .ui-shell-with-sidebar-content {
   display: flex;
   flex: 1;
   flex-direction: column;
+  min-width: 0;
 }
