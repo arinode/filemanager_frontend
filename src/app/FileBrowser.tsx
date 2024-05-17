@@ -15,7 +15,7 @@ const FileBrowser = () => {
     path += '/';
   }
 
-  const { data: children, isLoading, isFetching, isError } =
+  const { data: entryChildren, isLoading, isFetching, isError } =
     useGetEntryChildrenQuery(path);
 
   if (isError) {
@@ -23,11 +23,11 @@ const FileBrowser = () => {
   }
 
   let disabled = false;
-  if (isLoading || isFetching || children === undefined) {
+  if (isLoading || isFetching || entryChildren === undefined) {
     disabled = true;
   }
 
-  console.log(children);
+  console.log(entryChildren);
 
   const handleOnEntryClick = (e: EntryMetadata) => {
     if (e.kind === 'file') {
@@ -61,7 +61,7 @@ const FileBrowser = () => {
     <div className='file-browser'>
       <DirEntryTable
         disabled={disabled}
-        entries={children?.children}
+        entryChildren={entryChildren}
         onEntryClick={handleOnEntryClick}
       />
       {fileViewer}

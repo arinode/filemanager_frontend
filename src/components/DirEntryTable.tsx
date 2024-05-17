@@ -2,13 +2,13 @@ import './DirEntryTable.css';
 
 import { formatBytes, formatUnixTimestamp } from '../utils';
 import { Button } from './index';
-import { EntryMetadata } from '../types';
+import { EntryChildren, EntryMetadata } from '../types';
 import { useMemo, useState } from 'react';
 
-type EntryField = 'basename' | 'size' | 'created' | 'modified';
+type EntryField = 'basename' | 'size' | 'created' | 'modified' | 'thumb';
 
 export interface DirEntryTableProps {
-  entries?: EntryMetadata[];
+  entryChildren?: EntryChildren;
   onEntryClick?: (entry: EntryMetadata) => void;
   disabled?: boolean;
   visibleFields?: EntryField[];
@@ -16,12 +16,18 @@ export interface DirEntryTableProps {
 
 export const DirEntryTable = (
   {
-    entries = [],
+    entryChildren,
     disabled = false,
     onEntryClick = () => {},
-    visibleFields = ['basename', 'size', 'modified'],
+    visibleFields = ['thumb', 'basename', 'size', 'modified'],
   }: DirEntryTableProps,
 ) => {
+  if (entryChildren === undefined) {
+    return 'loading';
+  }
+
+  const { prefix, children: entries } = entryChildren;
+
   const [sortingField, setSortingField] = useState('basename');
   const [sortAscending, setSortAscending] = useState(true);
 
@@ -54,7 +60,9 @@ export const DirEntryTable = (
     return sortedEntries.map((e) => {
       return (
         <DirEntryTableRow
+          key={`${prefix}/${e.basename}/${e.size}`}
           entry={e}
+          prefix={prefix}
           onClick={() => onEntryClick(e)}
           visibleFields={visibleFields}
         />
@@ -66,6 +74,11 @@ export const DirEntryTable = (
     setSortingField(field);
     setSortAscending(!sortAscending);
   };
+
+  const thThumb = (
+    <th className='thumb'>
+    </th>
+  );
 
   const thBasename = (
     <th>
@@ -107,6 +120,7 @@ export const DirEntryTable = (
     <table className={`dir-entry-table ${disabled ? 'disabled' : ''}`}>
       <thead>
         <tr>
+          {visibleFields.includes('thumb') ? thThumb : null}
           {visibleFields.includes('basename') ? thBasename : null}
           {visibleFields.includes('created') ? thCreated : null}
           {visibleFields.includes('modified') ? thModified : null}
@@ -122,17 +136,28 @@ export const DirEntryTable = (
 
 export interface DirEntryTableRowProps {
   entry: EntryMetadata;
+  prefix: string;
   onClick: React.MouseEventHandler<HTMLTableRowElement>;
   visibleFields: EntryField[];
 }
 
 const DirEntryTableRow = (
-  { entry, onClick, visibleFields }: DirEntryTableRowProps,
+  { entry, prefix, onClick, visibleFields }: DirEntryTableRowProps,
 ) => {
   const { basename, created, size, modified } = entry;
 
   return (
     <tr onClick={onClick}>
+      {visibleFields.includes('thumb')
+        ? (
+          <td>
+            <img
+              loading='lazy'
+              src={`/api/entries/${prefix}/${basename}?alt=thumb`}
+            />
+          </td>
+        )
+        : null}
       {visibleFields.includes('basename') ? <td>{basename}</td> : null}
       {visibleFields.includes('created')
         ? <td>{formatUnixTimestamp(created)}</td>
