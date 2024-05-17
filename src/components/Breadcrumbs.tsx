@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './Breadcrumbs.css';
 
 export interface BreadcrumbsProps {
@@ -35,9 +35,9 @@ export interface CrumbProps {
 export const Crumb = ({ text, link, isCurrent }: CrumbProps) => {
   return (
     <li>
-      <a href={link} {...(isCurrent ? { 'aria-current': 'location' } : null)}>
+      <Link to={link} {...(isCurrent ? { 'aria-current': 'location' } : null)}>
         {text}
-      </a>
+      </Link>
     </li>
   );
 };
