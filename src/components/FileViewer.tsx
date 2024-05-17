@@ -100,7 +100,7 @@ interface MediaComponentProps {
 
 const MediaComponent = forwardRef<any, MediaComponentProps>(
   (
-    { registry, url, coverUrl = '/cover.jpg', onCoverClick },
+    { registry, url, coverUrl = '/cover.svg', onCoverClick },
     ref,
   ) => {
     if (registry === 'video') {
@@ -114,8 +114,8 @@ const MediaComponent = forwardRef<any, MediaComponentProps>(
             src={coverUrl}
             onClick={onCoverClick}
             onError={({ currentTarget }) => {
-              if (!currentTarget.src.endsWith('/cover.jpg')) {
-                currentTarget.src = '/cover.jpg';
+              if (!currentTarget.src.endsWith('/cover.svg')) {
+                currentTarget.src = '/cover.svg';
               }
             }}
           />
