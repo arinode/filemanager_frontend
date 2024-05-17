@@ -11,7 +11,7 @@ export const Breadcrumbs = () => {
     path = path.slice(0, -1);
   }
 
-  const components = Array.from(path.split('/').entries()); // .entries().map() is still experimetal
+  const components = path !== '' ? Array.from(path.split('/').entries()) : []; // .entries().map() is still experimetal
 
   return (
     <nav className='breadcrumbs' aria-label='breadcrumbs'>
