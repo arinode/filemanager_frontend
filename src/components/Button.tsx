@@ -20,7 +20,12 @@ export const Button = forwardRef(({
   children,
   className = '',
   kind = 'secondary',
-  onClick = (e) => console.error('onClick handler is not bound', e),
+  onClick = (e) => {
+    alert(
+      'this feature is not yet implemented; this app is a work in progress',
+    );
+    console.error('onClick handler is not bound', e);
+  },
   style,
 }: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
   return (
